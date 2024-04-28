@@ -1,0 +1,44 @@
+.container {
+    .title {
+        text-align: center;
+
+        & h1 {
+            font-family: "Cal Sans";
+            display: inline-block;
+            color: transparent;
+            margin: auto;
+            margin-top: 4rem;
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 4.5rem;
+            background: linear-gradient(90deg, var(--bg) -10%, var(--fg) 50%, var(--bg) 110%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    .image-container {
+        position: relative;
+        height: 70vh;
+        background: radial-gradient(circle at bottom, #2F231E, var(--bg) 50%);
+
+        & img {
+            object-fit: contain;
+        }
+    }
+
+    .caption {
+        text-align: center;
+        margin-top: 1rem;
+
+        & h1 {
+            font-family: "Cal Sans";
+            font-weight: 600;
+            display: inline-block;
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, var(--bg) -10%, #50331E 10%, #50331E 90%, var(--bg) 110%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+}

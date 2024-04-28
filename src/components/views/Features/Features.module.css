@@ -1,0 +1,62 @@
+.container {
+    padding: 4rem;
+    width: 100%;
+    padding-top: 2rem;
+    display: flex;
+    position: relative;
+    margin-top: 4rem;
+    gap: 4rem;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    & > * {
+        width: 25rem;
+    }
+
+    & h1 {
+        margin-bottom: 1rem;
+        color: var(--fg);
+        font-weight: 800;
+    }
+
+    & p {
+        font-size: 1.25rem;
+        color: color-mix(in srgb, var(--fg), black);
+        font-weight: 200;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .container {
+        display: block;
+        font-size: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        & h1 {
+            font-size: 1.25rem;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        gap: 2rem;
+
+        & > * {
+            width: 15rem;
+        }
+
+        & h1 {
+            font-size: 1.5rem;
+        }
+
+        & p {
+            font-size: 1rem;
+        }
+    }
+}

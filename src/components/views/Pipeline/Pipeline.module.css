@@ -1,0 +1,110 @@
+.container {
+    width: 100%;
+    padding: 0.25rem 4rem;
+    padding-top: 2rem;
+    display: flex;
+    position: relative;
+    margin-top: 4rem;
+    gap: 4rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .icon {
+        display: inline-block;
+        vertical-align: middle;
+        background-image: url("/icons/amber-file.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 3.75rem;
+        height: 3.75rem;
+
+        &.amber {
+            background-image: url("/icons/amber-file.svg");
+        }
+
+        &.bash {
+            background-image: url("/icons/bash-file.svg");
+        }
+
+        &.terminal {
+            background-image: url("/icons/terminal.svg");
+        }
+    }
+
+    & h1 {
+        display: inline-block;
+        margin-left: 1.25rem;
+        font-size: 2.75rem;
+        vertical-align: middle;
+
+        background: linear-gradient(var(--fg), #888);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        &.amber {
+            background: linear-gradient(90deg, #FFB19488, transparent 50%), linear-gradient(#E5DAD1, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    .pipeline {
+        margin-top: 3rem;
+        width: 25rem;
+        height: 15rem;
+        background-size: cover;
+
+        .write {
+            margin: 1rem;
+            background-image: url("/pipelines/write.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: calc(100% - 2rem);
+            height: 11.5rem;
+        }
+
+        .compile {
+            margin: 1rem;
+            background-image: url("/pipelines/compile.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: calc(100% - 2rem);
+            height: 11.5rem;
+        }
+
+        .execute {
+            margin: 1rem;
+            background-image: url("/pipelines/execute.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: calc(55% - 2rem);
+            height: 11.5rem;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .container {
+        margin-top: 0;
+        padding-top: 0;
+
+        .icon {
+            width: 3rem;
+            height: 3rem;
+        }
+
+        .pipeline {
+            margin-top: 2rem;
+            width: 20rem;
+            height: 11rem;
+
+            & > * {
+                height: 12.5rem;
+            }
+        }
+    }
+}

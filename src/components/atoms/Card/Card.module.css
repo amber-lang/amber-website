@@ -1,0 +1,27 @@
+.container {
+    flex: 1;
+    border-width: 1pt;
+    border-style: solid;
+    border-radius: 2rem;
+    border: double 1pt transparent;
+    /* This transforms padding + border to a border gradient */
+    background-image:
+        radial-gradient(ellipse at top, #49423f, #211f1d 50%, var(--bg)),
+        radial-gradient(ellipse at top, white, var(--bg) 90%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+
+    &.dark {
+        background-image:
+            radial-gradient(ellipse at top, #211f1d, #211f1d 50%, var(--bg)),
+            radial-gradient(ellipse at top, white, var(--bg) 90%);
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+    }
+
+    .content {
+        padding: 1.5rem;
+        width: 100%;
+        height: 100%;
+    }
+}

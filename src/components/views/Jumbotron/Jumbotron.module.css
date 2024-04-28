@@ -1,0 +1,107 @@
+@keyframes image {
+    0% {
+        transform: translateY(0%);
+    }
+    50% {
+        transform: translateY(4%) translateX(2%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+.jumbotron {
+    display: flex;
+    flex-direction: row;
+
+    .text {
+        display: inline-block;
+        flex: 1;
+        margin-left: 4rem;
+        margin-top: 4rem;
+
+        .heading {
+            font-family: 'Cal Sans', sans-serif;
+            font-size: 3rem;
+            word-spacing: 0.5rem;
+            line-height: 3.75rem;
+        }
+
+        .paragraph {
+            margin-top: 1.5rem;
+            font-size: 1.2rem;
+            line-height: 1.5rem;
+            font-weight: 100;
+            width: 500px
+        }
+    }
+
+    .image {
+        display: inline-block;
+        animation: image 20s infinite;
+        flex: 1;
+
+        .card {
+            width: 55vw;
+            height: 30rem;
+            margin: 8.5rem 0 2rem 6rem;
+            text-align: left;
+            position: relative;
+
+            border-width: 1pt;
+            border-style: solid;
+            border-right: 0pt;
+            border-radius: 2rem;
+            border-top-right-radius: 0;
+            border: double 1pt transparent;
+            /* This transforms padding + border to a border gradient */
+            background-image:
+                radial-gradient(ellipse 90% 70% at 40% top, #49423f, #211f1d 50%, var(--bg)),
+                radial-gradient(ellipse at 40% top, white, var(--bg) 70%);
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+
+            box-shadow: 0 -2rem 2rem color-mix(in srgb, black, transparent 50%);
+
+            .code {
+                position: relative;
+                z-index: 0;
+                margin: 3rem;
+                margin-top: 4rem;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-image: url("/jumbotron-sample-code.svg");
+                width: 55vw;
+                height: 30rem;
+            }
+
+            &::before {
+                content: '';
+                display: inline-block;
+                position: absolute;
+                width: inherit;
+                height: inherit;
+                background: linear-gradient(
+                    180deg,
+                    transparent 30%,
+                    color-mix(in srgb, #160f0ccc, transparent 30%),
+                    #160f0c 90%
+                );
+                top: 0;
+                z-index: 5;
+                border-radius: inherit;
+            }
+
+            &::after {
+                content: '';
+                display: inline-block;
+                position: absolute;
+                width: inherit;
+                height: inherit;
+                background: linear-gradient(90deg, transparent 50%, color-mix(in srgb, #160f0ccc, transparent 30%));
+                top: 0;
+                border-radius: inherit;
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+.nav {
+    padding-top: 1rem;
+    padding-left: 1rem;
+    user-select: none;
+    cursor: default;
+
+    .logo {
+        display: inline;
+        vertical-align: middle;
+    }
+
+    .logo-title {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 1.75rem;
+        margin-top: -0.5rem;
+        margin-left: 0.5rem;
+        font-family: "Cal Sans";
+        letter-spacing: 1px;
+    }
+
+    .right-nav {
+        display: inline-block;
+        position: absolute;
+        right: 1rem;
+
+        .button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            margin-left: 1rem;
+            font-size: 1.25rem;
+            background-color: transparent;
+            transition: background-color 100ms;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #1d1613;
+            }
+        }
+    }
+}

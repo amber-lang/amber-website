@@ -1,0 +1,23 @@
+.cta {
+    display: block;
+    margin-right: auto;
+    margin-top: 2.75rem;
+    appearance: none;
+    background: linear-gradient(135deg, #C63531, #EA5A00);
+    border-radius: 1rem;
+    border: 1pt solid transparent;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-family: var(--font-geist-sans);
+    font-weight: 500;
+    color: var(--bg);
+    padding: 0.8rem 1rem;
+    box-shadow: 2px 4px 2rem #FF730033, -2px -4px 2rem #EC401033;
+    transition: box-shadow 800ms, border 500ms;
+    transition-timing-function: cubic-bezier(0,1.5,1,1);
+
+    &:hover {
+        border: 1pt solid var(--bg);
+        box-shadow: 2px 4px 2rem #FF730077, -2px -4px 2rem #EC401077;
+    }
+}
