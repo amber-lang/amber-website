@@ -25,6 +25,7 @@
             font-size: 3rem;
             word-spacing: 0.5rem;
             line-height: 3.75rem;
+            width: 30rem;
         }
 
         .paragraph {
@@ -33,6 +34,10 @@
             line-height: 1.5rem;
             font-weight: 100;
             width: 500px
+        }
+
+        .cta {
+            margin-top: 2.75rem;
         }
     }
 
@@ -102,6 +107,67 @@
                 top: 0;
                 border-radius: inherit;
             }
+        }
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .jumbotron {
+        flex-direction: column;
+
+        .text {
+            text-align: center;
+            margin-left: 0;
+
+            .heading {
+                font-size: 3rem;
+                line-height: 3rem;
+                width: auto;
+                margin-left: 2rem;
+                margin-right: 2rem;
+                word-spacing: inherit;
+            }
+
+            .paragraph {
+                width: auto;
+                margin-left: 4rem;
+                margin-right: 4rem;
+            }
+        }
+
+        .image .card {
+            width: 100vw;
+            height: 20rem;
+            margin-top: 3rem;
+            margin-left: 2rem;
+
+            .code {
+                width: 100vw;
+                margin-top: 4rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .jumbotron .text {
+        .heading {
+            font-size: 2rem;
+            line-height: 2.25rem;
+            margin: 0rem;
+        }
+
+        .paragraph {
+            font-size: 1rem;
+            line-height: 1.25rem;
+            margin-top: 0.75rem;
+            margin-left: 2rem;
+            margin-right: 2rem;
+        }
+
+        .cta {
+            margin: auto;
+            margin-top: 1rem;
         }
     }
 }

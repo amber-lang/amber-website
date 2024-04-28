@@ -2,6 +2,7 @@
     margin-top: 4rem;
     height: calc(100vh - 10rem);
     background: radial-gradient(ellipse 50% 35% at bottom, #D5441C33, var(--bg));
+    text-align: center;
 
     .title {
         text-align: center;
@@ -34,4 +35,22 @@
     font-size: 1.25rem;
     text-align: center;
     font-weight: 600;
+}
+
+@media screen and (max-width: 720px) {
+    .container {
+        .title h1 {
+            font-size: 3rem;
+        }
+
+        .caption h1 {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .container .title h1 {
+        font-size: 2.5rem;
+    }
 }

@@ -6,8 +6,8 @@ export default function Jumbotron() {
         <div className={styles.jumbotron}>
             <div className={styles.text}>
                 <div className={styles.heading}>
-                    The programming <br />
-                    language compiled <br />
+                    The Programming
+                    Language compiled
                     to Bash.
                 </div>
                 <div className={styles.paragraph}>
@@ -15,9 +15,11 @@ export default function Jumbotron() {
                     runtime-safe programming language that handles
                     many bugs and mistakes during compilation process.
                 </div>
-                <CallToActionButton>
-                    Get Started
-                </CallToActionButton>
+                <div className={styles.cta}>
+                    <CallToActionButton>
+                        Get Started
+                    </CallToActionButton>
+                </div>
             </div>
             <div className={styles.image}>
                 <div className={styles.card}>

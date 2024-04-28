@@ -108,3 +108,44 @@
         }
     }
 }
+
+@media screen and (max-width: 720px) {
+    .container {
+        padding: 0.25rem 1rem;
+        margin-top: 5rem;
+
+        .pipeline {
+            margin-top: 1rem;
+            width: calc(100vw - 6rem);
+            height: 11rem;
+
+            & .write, & .compile, & .execute {
+                margin: 0rem;
+                max-width: 20rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .container {
+        padding: 0.25rem 1rem;
+        margin-top: 3rem;
+
+        .pipeline {
+            margin-top: 1rem;
+            width: calc(100vw - 5rem);
+            height: 7rem;
+
+            & > * {
+                height: 8.5rem;
+            }
+
+            & .write, & .compile, & .execute {
+                margin: 0rem;
+                height: 5.5rem;
+                max-width: 20rem;
+            }
+        }
+    }
+}
