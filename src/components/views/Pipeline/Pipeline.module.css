@@ -1,10 +1,13 @@
 .container {
     width: 100%;
+    max-width: 100rem;
     padding: 0.25rem 4rem;
     padding-top: 2rem;
     display: flex;
     position: relative;
     margin-top: 4rem;
+    margin-left: auto;
+    margin-right: auto;
     gap: 4rem;
     overflow-x: auto;
     overflow-y: hidden;
@@ -52,6 +55,10 @@
         }
     }
 
+    & > * {
+        max-width: 28rem;
+    }
+
     .pipeline {
         margin-top: 3rem;
         width: 25rem;
@@ -81,7 +88,7 @@
             background-image: url("/pipelines/execute.svg");
             background-size: contain;
             background-repeat: no-repeat;
-            width: calc(55% - 2rem);
+            width: calc(50% - 2rem);
             height: 11.5rem;
         }
     }
@@ -114,14 +121,18 @@
         padding: 0.25rem 1rem;
         margin-top: 5rem;
 
+        & > * {
+            max-width: unset;
+        }
+
         .pipeline {
             margin-top: 1rem;
-            width: calc(100vw - 6rem);
+            width: calc(100vw - 6rem - 20vw);
             height: 11rem;
 
             & .write, & .compile, & .execute {
                 margin: 0rem;
-                max-width: 20rem;
+                max-width: 18rem;
             }
         }
     }

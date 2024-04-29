@@ -1,13 +1,14 @@
 .container {
     margin-top: 4rem;
     height: calc(100vh - 10rem);
+    max-height: calc(60rem - 10rem);
     background: radial-gradient(ellipse 50% 35% at bottom, #D5441C33, var(--bg));
     text-align: center;
 
     .title {
         text-align: center;
-        padding-top: 30vh;
-        padding-bottom: 10vh;
+        padding-top: min(30vh, 20rem);
+        padding-bottom: min(10vh, 6rem);
 
         & h1 {
             display: inline-block;

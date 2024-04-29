@@ -13,6 +13,11 @@
 .jumbotron {
     display: flex;
     flex-direction: row;
+    position: relative;
+    max-width: 100rem;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
 
     .text {
         display: inline-block;
@@ -48,6 +53,7 @@
 
         .card {
             width: 55vw;
+            max-width: 55rem;
             height: 30rem;
             margin: 8.5rem 0 2rem 6rem;
             text-align: left;
@@ -77,6 +83,7 @@
                 background-repeat: no-repeat;
                 background-image: url("/jumbotron-sample-code.svg");
                 width: 55vw;
+                max-width: 55rem;
                 height: 30rem;
             }
 
@@ -85,6 +92,7 @@
                 display: inline-block;
                 position: absolute;
                 width: inherit;
+                max-width: 55rem;
                 height: inherit;
                 background: linear-gradient(
                     180deg,
@@ -102,9 +110,10 @@
                 display: inline-block;
                 position: absolute;
                 width: inherit;
-                height: inherit;
-                background: linear-gradient(90deg, transparent 50%, color-mix(in srgb, #160f0ccc, transparent 30%));
-                top: 0;
+                max-width: 55rem;
+                height: calc(100% + 2rem);
+                background: linear-gradient(90deg, transparent 50%, var(--bg));
+                top: -2rem;
                 border-radius: inherit;
             }
         }

@@ -1,10 +1,13 @@
 .container {
     padding: 4rem;
     width: 100%;
+    max-width: 100rem;
     padding-top: 2rem;
     display: flex;
     position: relative;
     margin-top: 4rem;
+    margin-left: auto;
+    margin-right: auto;
     gap: 4rem;
 
     &::-webkit-scrollbar {
