@@ -152,31 +152,39 @@
 
             .code {
                 width: 100vw;
-                margin-top: 4rem;
+                margin: 2rem;
+                margin-top: 2.5rem;
             }
         }
     }
 }
 
 @media screen and (max-width: 420px) {
-    .jumbotron .text {
-        .heading {
-            font-size: 2rem;
-            line-height: 2.25rem;
-            margin: 0rem;
+    .jumbotron {
+        .text {
+            .heading {
+                font-size: 2rem;
+                line-height: 2.25rem;
+                margin: 0rem;
+            }
+
+            .paragraph {
+                font-size: 1rem;
+                line-height: 1.25rem;
+                margin-top: 0.75rem;
+                margin-left: 2rem;
+                margin-right: 2rem;
+            }
+
+            .cta {
+                margin: auto;
+                margin-top: 1rem;
+            }
         }
 
-        .paragraph {
-            font-size: 1rem;
-            line-height: 1.25rem;
-            margin-top: 0.75rem;
-            margin-left: 2rem;
-            margin-right: 2rem;
-        }
-
-        .cta {
-            margin: auto;
-            margin-top: 1rem;
+        .image .card .code {
+            margin: 1.5rem;
+            margin-top: 2rem;
         }
     }
 }
