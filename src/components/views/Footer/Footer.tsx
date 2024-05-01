@@ -1,5 +1,6 @@
 import CallToActionButton from "@/components/atoms/CallToActionButton/CallToActionButton";
 import styles from "./Footer.module.css";
+import Link from "next/link";
 
 export default function Footer() {
     return (
@@ -11,7 +12,9 @@ export default function Footer() {
                     </h1>
                 </div>
                 <CallToActionButton>
-                    See the docs
+                    <Link href="https://github.com/Ph0enixKM/Amber">
+                        See the docs
+                    </Link>
                 </CallToActionButton>
             </div>
             <div className={styles.footer}>
