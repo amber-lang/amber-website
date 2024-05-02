@@ -1,5 +1,6 @@
 import CallToActionButton from "@/components/atoms/CallToActionButton/CallToActionButton";
 import styles from "./Jumbotron.module.css";
+import Link from "next/link";
 
 export default function Jumbotron() {
     return (
@@ -17,7 +18,9 @@ export default function Jumbotron() {
                 </div>
                 <div className={styles.cta}>
                     <CallToActionButton>
-                        Get Started
+                        <Link href="https://amber.marble.software">
+                            Get Started
+                        </Link>
                     </CallToActionButton>
                 </div>
             </div>
