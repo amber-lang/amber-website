@@ -22,7 +22,7 @@ export default function Jumbotron() {
                 <div className={styles.cta}>
                     <CallToActionButton>
                         <Button
-                            href="https://amber.marble.software"
+                            href="https://docs.amber-lang.com"
                             telemetryName="docs"
                         >
                             Get Started

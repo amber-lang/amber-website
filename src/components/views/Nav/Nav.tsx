@@ -23,7 +23,7 @@ export default function Nav() {
                     </Button>
                 </div>
                 <Button
-                    href="https://amber.marble.software"
+                    href="https://docs.amber-lang.com"
                     telemetryName="docs"
                     styled
                 >

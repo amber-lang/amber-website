@@ -13,7 +13,7 @@ export default function Footer() {
                     </h1>
                 </div>
                 <CallToActionButton>
-                    <Button href="https://amber.marble.software" telemetryName="docs">
+                    <Button href="https://docs.amber-lang.com" telemetryName="docs">
                         See the docs
                     </Button>
                 </CallToActionButton>
