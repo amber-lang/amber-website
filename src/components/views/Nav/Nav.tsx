@@ -14,10 +14,26 @@ export default function Nav() {
             </div>
             <div className={styles["logo-title"]}>amber</div>
             <div className={styles["right-nav"]}>
-                <Button href="https://amber.marble.software" telemetryName="docs">
+                <div className={styles.discord}>
+                    <Button
+                        href="https://discord.gg/cjHjxbsDvZ"
+                        styled
+                    >
+                        Join our Discord!
+                    </Button>
+                </div>
+                <Button
+                    href="https://amber.marble.software"
+                    telemetryName="docs"
+                    styled
+                >
                     Docs
                 </Button>
-                <Button href="https://github.com/Ph0enixKM/Amber" telemetryName="github">
+                <Button
+                    href="https://github.com/Ph0enixKM/Amber"
+                    telemetryName="github"
+                    styled
+                >
                     Github
                 </Button>
             </div>

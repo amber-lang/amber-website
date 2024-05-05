@@ -55,7 +55,7 @@
     }
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 800px) {
     .container {
         display: block;
         font-size: 1rem;

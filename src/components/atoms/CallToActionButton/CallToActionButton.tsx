@@ -7,8 +7,8 @@ type Props = {
 
 export default function CallToActionButton({ children }: Props) {
     return (
-        <button className={styles.cta}>
+        <div className={styles.cta}>
             {children}
-        </button>
+        </div>
     );
 }

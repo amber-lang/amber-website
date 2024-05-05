@@ -17,7 +17,16 @@
     }
 }
 
-@media screen and (max-width: 720px) {
+.unstyled {
+    appearance: none;
+    background: transparent;
+    border: transparent;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+}
+
+@media screen and (max-width: 800px) {
     .button {
         padding: 0.25rem 0.5rem;
         font-size: 1rem;

@@ -116,7 +116,7 @@
     }
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 800px) {
     .container {
         padding: 0.25rem 1rem;
         margin-top: 0rem;

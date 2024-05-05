@@ -29,9 +29,35 @@
         vertical-align: middle;
         right: 1rem;
     }
+
+    .discord {
+        display: inline-block;
+        position: relative;
+
+        &::after {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            bottom: 0;
+            left: 2rem;
+            width: calc(100% - 3rem);
+            border-radius: 999px;
+            height: 2pt;
+            background: linear-gradient(90deg, #cb3a2a, #e67117);
+            opacity: 1;
+            transition: 200ms transform;
+            transform: scaleX(0.8) scaleY(1);
+            transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            pointer-events: none;
+        }
+
+        &:hover::after {
+            transform: scaleX(1) scaleY(2);
+        }
+    }
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 800px) {
     .nav {
         .logo {
             width: 32px;
@@ -40,6 +66,14 @@
 
         .logo-title {
             font-size: 1.5rem;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .nav {
+        .discord {
+            display: none;
         }
     }
 }

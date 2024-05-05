@@ -7,15 +7,19 @@ import { ReactNode } from "react";
 type Props = {
     children?: ReactNode
     href?: string,
-    telemetryName?: string
+    telemetryName?: string,
+    styled?: boolean
 }
 
-export default function Button({ children, href, telemetryName }: Props) {
+export default function Button({ children, href, telemetryName, styled }: Props) {
     const router = useRouter();
 
     async function redirectWithTelemetry(href?: string, telemetryName?: string) {
         if (telemetryName) {
-            const res = await fetch(`/api/visit?name=${telemetryName}`);
+            const res = await fetch(`/api/visit?name=${telemetryName}`, {
+                method: 'PUT',
+                cache: 'no-store'
+            });
             console.log(await res.text());
         }
         if (href) {
@@ -24,7 +28,10 @@ export default function Button({ children, href, telemetryName }: Props) {
     }
 
     return (
-        <button className={styles.button} onClick={() => redirectWithTelemetry(href, telemetryName)}>
+        <button
+            className={styled ? styles.button : styles.unstyled}
+            onClick={() => redirectWithTelemetry(href, telemetryName)}
+        >
             {children}
         </button>
     );

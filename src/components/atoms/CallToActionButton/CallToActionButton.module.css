@@ -21,7 +21,7 @@
     }
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 800px) {
     .cta {
         font-size: 1rem;
         padding: 0.6rem 0.75rem;

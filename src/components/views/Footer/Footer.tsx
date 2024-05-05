@@ -1,6 +1,7 @@
 import CallToActionButton from "@/components/atoms/CallToActionButton/CallToActionButton";
 import styles from "./Footer.module.css";
 import Link from "next/link";
+import Button from "@/components/atoms/Button/Button";
 
 export default function Footer() {
     return (
@@ -12,9 +13,9 @@ export default function Footer() {
                     </h1>
                 </div>
                 <CallToActionButton>
-                    <Link href="https://github.com/Ph0enixKM/Amber">
+                    <Button href="https://amber.marble.software" telemetryName="docs">
                         See the docs
-                    </Link>
+                    </Button>
                 </CallToActionButton>
             </div>
             <div className={styles.footer}>
