@@ -15,7 +15,7 @@ export const metadata: Metadata = {
       type: "website",
       images: [
           {
-              url: 'https://amber-lang.com/og.png'
+              url: 'https://amber-lang.com/og.jpeg'
           }
       ]
   }
