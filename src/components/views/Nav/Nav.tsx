@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./Nav.module.css";
-import Link from "next/link";
+import Button from "@/components/atoms/Button/Button";
 
 export default function Nav() {
     return (
@@ -14,12 +14,12 @@ export default function Nav() {
             </div>
             <div className={styles["logo-title"]}>amber</div>
             <div className={styles["right-nav"]}>
-                <Link href="https://amber.marble.software">
-                    <div className={styles["button"]}>Docs</div>
-                </Link>
-                <Link href="https://github.com/Ph0enixKM/Amber">
-                    <div className={styles["button"]}>Github</div>
-                </Link>
+                <Button href="https://amber.marble.software" telemetryName="docs">
+                    Docs
+                </Button>
+                <Button href="https://github.com/Ph0enixKM/Amber" telemetryName="github">
+                    Github
+                </Button>
             </div>
         </nav>
     );

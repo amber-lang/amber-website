@@ -28,22 +28,6 @@
         position: absolute;
         vertical-align: middle;
         right: 1rem;
-
-        .button {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            margin-left: 1rem;
-            font-size: 1.25rem;
-            background-color: transparent;
-            transition: background-color 100ms;
-            cursor: pointer;
-            vertical-align: middle;
-
-            &:hover {
-                background-color: #1d1613;
-            }
-        }
     }
 }
 
@@ -56,11 +40,6 @@
 
         .logo-title {
             font-size: 1.5rem;
-        }
-
-        .right-nav .button {
-            padding: 0.25rem 0.5rem;
-            font-size: 1rem;
         }
     }
 }
