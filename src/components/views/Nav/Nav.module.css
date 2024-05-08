@@ -1,5 +1,7 @@
 .nav {
-    padding-top: 1rem;
+    display : flex;
+    align-items : center;
+    padding-top: 0.75rem;
     padding-left: 1rem;
     user-select: none;
     cursor: default;
@@ -8,16 +10,17 @@
         display: inline-block;
         position: relative;
         object-fit: cover;
-        width: 48px;
-        height: 48px;
+        width: 3rem;
+        height: 3rem;
         vertical-align: middle;
+        margin-left: 1rem;
     }
 
     .logo-title {
         display: inline-block;
         vertical-align: middle;
         font-size: 1.75rem;
-        margin-top: -0.5rem;
+        line-height: 3rem;
         margin-left: 0.5rem;
         font-family: "Cal Sans";
         letter-spacing: 1px;
@@ -60,8 +63,8 @@
 @media screen and (max-width: 800px) {
     .nav {
         .logo {
-            width: 32px;
-            height: 32px;
+            width: 2.5rem;
+            height: 2.5rem;
         }
 
         .logo-title {

@@ -48,7 +48,6 @@ export default function CopyInstaller() {
         navigator.clipboard.writeText(contents?.snippet ?? '');
 
         fetch("/api/visit?name=download", {
-            method: 'PUT',
             cache: 'no-store'
         });
 

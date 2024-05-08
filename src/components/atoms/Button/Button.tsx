@@ -17,7 +17,6 @@ export default function Button({ children, href, telemetryName, styled }: Props)
     async function redirectWithTelemetry(href?: string, telemetryName?: string) {
         if (telemetryName) {
             const res = await fetch(`/api/visit?name=${telemetryName}`, {
-                method: 'PUT',
                 cache: 'no-store'
             });
             console.log(await res.text());
