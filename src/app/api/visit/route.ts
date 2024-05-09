@@ -12,9 +12,9 @@ export async function GET(request: NextRequest) {
             const fullAgent = [ip, agent].join(' ');
             await sql`
                 INSERT INTO amber_download_agents (agent)
-                VALUES (${fullAgent})
-                ON CONFLICT (agent) DO NOTHING;
+                VALUES (${fullAgent});
             `;
+            return NextResponse.json({ msg: "OK", agent: fullAgent });
         }
         await sql`
             UPDATE amber_analytics
