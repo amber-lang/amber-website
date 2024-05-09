@@ -1,12 +1,21 @@
 import { sql } from "@vercel/postgres";
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 
-export async function GET(request: Request) {
+export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const name = searchParams.get("name");
-
     try {
         if (!name) throw new Error("Name parameter required");
+        if (name === 'download') {
+            const agent = searchParams.get("agent");
+            const ip = request.ip ?? request.headers.get('X-Forwarded-For');
+            const fullAgent = [ip, agent].join(' ');
+            await sql`
+                INSERT INTO amber_download_agents (agent)
+                VALUES (${fullAgent})
+                ON CONFLICT (agent) DO NOTHING;
+            `;
+        }
         await sql`
             UPDATE amber_analytics
             SET engagement = engagement + 1
