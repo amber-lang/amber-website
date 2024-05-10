@@ -1,7 +1,9 @@
 import { sql } from "@vercel/postgres";
 import { NextResponse, NextRequest } from "next/server";
+import { unstable_noStore as noStore } from 'next/cache';
 
 export async function GET(request: NextRequest) {
+    noStore();
     const { searchParams } = new URL(request.url);
     const name = searchParams.get("name");
     try {
@@ -12,7 +14,8 @@ export async function GET(request: NextRequest) {
             const fullAgent = [ip, agent].join(' ');
             await sql`
                 INSERT INTO amber_download_agents (agent)
-                VALUES (${fullAgent});
+                VALUES (${fullAgent})
+                ON CONFLICT (agent) DO NOTHING;
             `;
             return NextResponse.json({ msg: "OK", agent: fullAgent });
         }
