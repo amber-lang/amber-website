@@ -16,7 +16,7 @@ export default function Jumbotron() {
                 <div className={styles.paragraph}>
                     Write your scripts in a modern type-safe and
                     runtime-safe programming language that handles
-                    many bugs and mistakes during compilation process.
+                    many bugs and mistakes during the compilation process.
                 </div>
                 <CopyInstaller />
                 <div className={styles.cta}>
