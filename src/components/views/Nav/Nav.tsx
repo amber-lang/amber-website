@@ -34,7 +34,7 @@ export default function Nav() {
                     telemetryName="github"
                     styled
                 >
-                    Github
+                    GitHub
                 </Button>
             </div>
         </nav>
