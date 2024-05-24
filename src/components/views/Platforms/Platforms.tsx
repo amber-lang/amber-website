@@ -6,8 +6,8 @@ export default function Platforms() {
         <div className={styles.container}>
             <div className={styles.title}>
                 <h1>
-                    A portable solution for Unix<br/>
-                    based operating systems
+                    A portable solution for<br/>
+                    Unix-based operating systems
                 </h1>
             </div>
             <div className={styles["image-container"]}>
