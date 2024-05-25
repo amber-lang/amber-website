@@ -2,6 +2,7 @@ import { NextResponse, NextRequest } from "next/server";
 import { unstable_noStore as noStore } from 'next/cache';
 import { db } from '../../../lib/firebase';
 import admin from 'firebase-admin';
+import base32 from 'base32';
 
 export async function GET(request: NextRequest) {
     noStore();
@@ -13,7 +14,7 @@ export async function GET(request: NextRequest) {
             const agent = searchParams.get("agent");
             const ip = request.ip ?? request.headers.get('X-Forwarded-For');
             const fullAgent = [ip, agent].join(' ');
-            await db.collection("agents").doc(fullAgent).set({
+            await db.collection("agents").doc(base32.encode(fullAgent).slice(20)).set({
                 agent: fullAgent
             });
             return NextResponse.json({ msg: "OK", agent: fullAgent });
