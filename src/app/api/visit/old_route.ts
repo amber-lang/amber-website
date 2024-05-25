@@ -1,7 +1,6 @@
+import { sql } from "@vercel/postgres";
 import { NextResponse, NextRequest } from "next/server";
 import { unstable_noStore as noStore } from 'next/cache';
-import { db } from '../../../lib/firebase';
-import admin from 'firebase-admin';
 
 export async function GET(request: NextRequest) {
     noStore();
@@ -13,14 +12,18 @@ export async function GET(request: NextRequest) {
             const agent = searchParams.get("agent");
             const ip = request.ip ?? request.headers.get('X-Forwarded-For');
             const fullAgent = [ip, agent].join(' ');
-            await db.collection("agents").doc(fullAgent).set({
-                agent: fullAgent
-            });
+            await sql`
+                INSERT INTO amber_download_agents (agent)
+                VALUES (${fullAgent})
+                ON CONFLICT (agent) DO NOTHING;
+            `;
             return NextResponse.json({ msg: "OK", agent: fullAgent });
         }
-        await db.collection("analytics").doc(name).update({
-            engagement: admin.firestore.FieldValue.increment(1)
-        })
+        await sql`
+            UPDATE amber_analytics
+            SET engagement = engagement + 1
+            WHERE name = ${name};
+        `;
     } catch (error: any) {
         return NextResponse.json({ error: error.toString() }, { status: 500 });
     }
