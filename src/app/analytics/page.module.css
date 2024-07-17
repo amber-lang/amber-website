@@ -1,0 +1,69 @@
+.table {
+    border-collapse: separate;
+    border-spacing: 20px 0;
+    width: min(700px, 100vw);
+    overflow: hidden;
+    white-space: no-wrap;
+
+    & td, & tr {
+        overflow: hidden !important;
+        white-space: no-wrap;
+        max-width: 100px;
+        text-overflow: ellipsis;
+    }
+
+    .name {
+        max-width: 50px !important;
+        width: 20%;
+    }
+
+    .os {
+        text-align: right;
+        width: 20%;
+    }
+
+    .id {
+        color: gray;
+        font-family: monospace;
+        width: 60%;
+    }
+
+    & th {
+        padding: 20px;
+    }
+
+    & a {
+        color: orange;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
+.title {
+    font-family: 'Cal Sans', sans-serif;
+    font-size: 3rem;
+    word-spacing: 0.5rem;
+    line-height: 3.75rem;
+}
+
+.text {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    font-weight: 100;
+}
+
+.container {
+    margin: 30px;
+}
+
+.main {
+    max-width: min(700px, 100vw);
+    margin: 0 auto;
+}
+
+.loading {
+    color: gray;
+    text-align: center;
+    margin-top: 50px;
+}

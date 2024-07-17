@@ -2,7 +2,54 @@ import { NextResponse, NextRequest } from "next/server";
 import { unstable_noStore as noStore } from 'next/cache';
 import { db } from '../../../lib/firebase';
 import admin from 'firebase-admin';
-import base32 from 'base32';
+import Sentiment from 'sentiment';
+import crypto from 'crypto';
+
+const sentiment = new Sentiment();
+
+async function getGitHubURL(username: string) {
+    const githubApiUrl = `https://api.github.com/users/${username}`;
+    try {
+        const response = await fetch(githubApiUrl);
+        console.log(response.status, githubApiUrl);
+        if (response.status === 200) {
+            return `https://github.com/${username}`;
+        } else if (response.status === 404) {
+            return null;
+        }
+    } catch (error) {
+        console.error('An error occurred:', error);
+        return null;
+    }
+}
+
+function getOStype(agent: string) {
+    if (agent.match(/microsoft|wsl|msys|windows/gi)) return 'windows'
+    if (agent.match(/linux/gi)) return 'linux'
+    if (agent.match(/apple|darwin/gi)) return 'darwin'
+    return 'unclassified'
+}
+
+function getNickname(nickname: string) {
+    const name = nickname.slice(0, 40);
+    if (name.length) {
+        const result = sentiment.analyze(name);
+        if (result.score >= -1) {
+            return name
+        }
+    }
+    return ''
+}
+
+function getID(ip: string) {
+    const key = process.env.ENCRYPTION_KEY;
+    if (!key) {
+        throw Error('Bad encryption key');
+    }
+    return crypto.createHmac('sha256', key)
+        .update(ip)
+        .digest('hex');
+}
 
 export async function GET(request: NextRequest) {
     noStore();
@@ -11,13 +58,18 @@ export async function GET(request: NextRequest) {
     try {
         if (!name) throw new Error("Name parameter required");
         if (name === 'download') {
-            const agent = searchParams.get("agent");
+            const os = getOStype(searchParams.get("agent") ?? '');
+            const nickname = getNickname(searchParams.get("nickname") ?? '');
+            const githubURL = nickname && await getGitHubURL(nickname);
             const ip = request.ip ?? request.headers.get('X-Forwarded-For');
-            const fullAgent = [ip, agent].join(' ');
-            await db.collection("agents").doc(base32.encode(fullAgent).slice(20)).set({
-                agent: fullAgent
+            const id = getID(ip ?? '');
+            await db.collection("downloads").doc(id).set({
+                id,
+                os,
+                name: nickname,
+                githubURL
             });
-            return NextResponse.json({ msg: "OK", agent: fullAgent });
+            return NextResponse.json({ msg: "OK", id });
         }
         await db.collection("analytics").doc(name).update({
             engagement: admin.firestore.FieldValue.increment(1)

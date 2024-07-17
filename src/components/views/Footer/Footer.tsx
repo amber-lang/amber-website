@@ -19,7 +19,8 @@ export default function Footer() {
                 </CallToActionButton>
             </div>
             <div className={styles.footer}>
-                © 2024 Paweł Karaś
+                <div>© 2024 Paweł Karaś</div>
+                <Link href="/analytics">View the telemetry data</Link>
             </div>
         </div>
     );
