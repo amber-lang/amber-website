@@ -7,13 +7,12 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     try {
         const lastVisibleId = searchParams.get("lastVisibleId");
-        let query = db.collection('agents').limit(50);
-        if (lastVisibleId) {
-            const lastVisibleDoc = await db.collection('agents').doc(lastVisibleId).get();
+        let query = db.collection('downloads').limit(50);
+        if (lastVisibleId && lastVisibleId.length > 5) {
+            const lastVisibleDoc = await db.collection('downloads').doc(lastVisibleId).get();
             if (lastVisibleDoc.exists) query = query.startAfter(lastVisibleDoc);
             else return NextResponse.json({ error: "Invalid document ID" }, { status: 500 });
         }
-
         const snapshot = await query.get();
         const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
         const newLastVisible = snapshot.docs.at(-1);
