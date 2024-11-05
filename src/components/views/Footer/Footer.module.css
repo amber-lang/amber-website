@@ -36,6 +36,7 @@
     font-size: 1.25rem;
     text-align: center;
     font-weight: 600;
+    overflow-y: hidden;
 }
 
 @media screen and (max-width: 800px) {
