@@ -12,12 +12,22 @@
     color: var(--bg);
     padding: 1rem 1.2rem;
     box-shadow: 2px 4px 2rem #FF730033, -2px -4px 2rem #EC401033;
-    transition: box-shadow 800ms, border 500ms;
+    transition: box-shadow 800ms, border 500ms, transform 300ms;
     transition-timing-function: cubic-bezier(0,1.5,1,1);
 
     &:hover {
         border: 1pt solid var(--bg);
         box-shadow: 2px 4px 2rem #FF730077, -2px -4px 2rem #EC401077;
+    }
+
+    &:hover:active {
+        transform: scale(0.9);
+        filter: brightness(0.8);
+    }
+
+    & * {
+        user-select: none;
+        cursor: pointer;
     }
 }
 

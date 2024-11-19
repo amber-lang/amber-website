@@ -19,8 +19,8 @@ export default function Footer() {
                 </CallToActionButton>
             </div>
             <div className={styles.footer}>
-                <div>© 2024 Paweł Karaś</div>
-                <Link href="/analytics">View the telemetry data</Link>
+                <div className={styles.author}>© 2024 Amber</div>
+                <Link href="/analytics">View telemetry data</Link>
             </div>
         </div>
     );

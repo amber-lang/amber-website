@@ -1,10 +1,24 @@
+.space {
+    width: 100%;
+    height: 4rem;
+}
+
 .nav {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
     display : flex;
     align-items : center;
-    padding-top: 0.75rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.5rem;
     padding-left: 1rem;
     user-select: none;
     cursor: default;
+    transition: 100ms;
+    background: color-mix(in srgb, var(--bg) 80%, transparent);
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border-bottom: 1pt solid rgba(255, 255, 255, 0.1);
 
     .logo {
         display: inline-block;
@@ -19,6 +33,7 @@
     .logo-title {
         display: inline-block;
         vertical-align: middle;
+        position: relative;
         font-size: 1.75rem;
         line-height: 3rem;
         margin-left: 0.5rem;
@@ -41,9 +56,9 @@
             content: "";
             display: inline-block;
             position: absolute;
-            bottom: 0;
-            left: 2rem;
-            width: calc(100% - 3rem);
+            bottom: -0.25rem;
+            left: 0;
+            width: 100%;
             border-radius: 999px;
             height: 2pt;
             background: linear-gradient(90deg, #cb3a2a, #e67117);
@@ -55,8 +70,12 @@
         }
 
         &:hover::after {
-            transform: scaleX(1) scaleY(2);
+            transform: scaleX(1) scaleY(1.4);
         }
+    }
+
+    .discord-short {
+        display: none;
     }
 }
 
@@ -78,5 +97,37 @@
         .discord {
             display: none;
         }
+
+        .discord-short {
+            display: inline-block;
+            position: relative;
+
+            &::after {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                bottom: -0.25rem;
+                left: 0;
+                width: 100%;
+                border-radius: 999px;
+                height: 2pt;
+                background: linear-gradient(90deg, #cb3a2a, #e67117);
+                opacity: 1;
+                transition: 200ms transform;
+                transform: scaleX(0.8) scaleY(1);
+                transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                pointer-events: none;
+            }
+
+            &:hover::after {
+                transform: scaleX(1) scaleY(1.4);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .nav .discord-short {
+        display: none;
     }
 }

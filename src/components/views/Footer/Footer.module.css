@@ -31,12 +31,22 @@
 .footer {
     height: 10rem;
     background: radial-gradient(ellipse 50% 35% at top, #D5441C18, var(--bg));
-    line-height: 10rem;
-    color: #4F321F;
-    font-size: 1.25rem;
-    text-align: center;
+    color: #784929;
+    font-size: 1rem;
     font-weight: 600;
-    overflow-y: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .author {
+        display: inline-block;
+        margin: 0 2rem;
+        color: #4F321F;
+    }
+
+    & > a:hover {
+        text-decoration: underline;
+    }
 }
 
 @media screen and (max-width: 800px) {
@@ -48,6 +58,10 @@
         .caption h1 {
             font-size: 1.5rem;
         }
+    }
+    .footer {
+        flex-direction: column-reverse;
+        gap: 0.5rem;
     }
 }
 

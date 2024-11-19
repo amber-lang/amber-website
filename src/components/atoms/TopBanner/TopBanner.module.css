@@ -1,0 +1,15 @@
+.topbanner {
+    background: linear-gradient(90deg, #1d1613, #4f2113, #1d1613);
+    color: white;
+    padding: 1rem;
+    min-height: 3rem;
+    width: 100%;
+    text-align: center;
+    margin-top: -1px;
+    z-index: 900;
+
+    & a {
+        color: #e67117;
+        text-decoration: underline;
+    }
+}
