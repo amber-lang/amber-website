@@ -1,15 +1,3 @@
-@keyframes image {
-    0% {
-        transform: translateY(0%);
-    }
-    50% {
-        transform: translateY(4%) translateX(2%);
-    }
-    100% {
-        transform: translateY(0%);
-    }
-}
-
 .jumbotron {
     display: flex;
     flex-direction: row;
@@ -27,9 +15,15 @@
 
         .heading {
             font-family: 'Cal Sans', sans-serif;
-            font-size: 3rem;
+            font-size: 4rem;
             word-spacing: 0.5rem;
-            line-height: 3.75rem;
+            width: 30rem;
+        }
+
+        .subheading {
+            font-size: 2rem;
+            font-weight: 100;
+            opacity: 0.7;
             width: 30rem;
         }
 
@@ -48,7 +42,6 @@
 
     .image {
         display: inline-block;
-        animation: image 20s infinite;
         flex: 1;
 
         .card {
@@ -71,8 +64,6 @@
                 radial-gradient(ellipse at 40% top, white, var(--bg) 70%);
             background-origin: border-box;
             background-clip: content-box, border-box;
-
-            box-shadow: 0 -2rem 2rem color-mix(in srgb, black, transparent 50%);
 
             .code {
                 position: relative;
@@ -129,8 +120,15 @@
             margin-left: 0;
 
             .heading {
-                font-size: 3rem;
-                line-height: 3rem;
+                font-size: 5rem;
+                width: auto;
+                margin-left: 2rem;
+                margin-right: 2rem;
+                word-spacing: inherit;
+            }
+
+            .subheading {
+                font-size: 2rem;
                 width: auto;
                 margin-left: 2rem;
                 margin-right: 2rem;
@@ -159,12 +157,27 @@
     }
 }
 
+@media screen and (max-width: 500px) {
+    .jumbotron {
+        .text {
+            .subheading {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+
 @media screen and (max-width: 420px) {
     .jumbotron {
         .text {
             .heading {
-                font-size: 2rem;
-                line-height: 2.25rem;
+                font-size: 4rem;
+                margin: 0rem;
+            }
+
+            .subheading {
+                font-size: 1.25rem;
+                line-height: 1.5rem;
                 margin: 0rem;
             }
 

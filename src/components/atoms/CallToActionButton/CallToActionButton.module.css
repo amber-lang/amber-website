@@ -2,22 +2,53 @@
     display: inline-block;
     margin-right: auto;
     appearance: none;
-    background: linear-gradient(135deg, #C63531, #EA5A00);
+    font-family: monospace;
+    position: relative;
+    /* background: linear-gradient(135deg, #C63531, #EA5A00); */
     border-radius: 5rem;
     border: 1pt solid transparent;
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-family: var(--font-geist-sans);
     font-weight: 500;
-    color: var(--bg);
-    padding: 1rem 1.2rem;
-    box-shadow: 2px 4px 2rem #FF730033, -2px -4px 2rem #EC401033;
+    color: #E0661C;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid #38271f;
+    /* box-shadow: 2px 4px 2rem #FF730033, -2px -4px 2rem #EC401033; */
     transition: box-shadow 800ms, border 500ms, transform 300ms;
     transition-timing-function: cubic-bezier(0,1.5,1,1);
 
+    &::after {
+        content: "()";
+        color: gray;
+        display: inline-block;
+        font-family: monospace;
+    }
+
     &:hover {
-        border: 1pt solid var(--bg);
-        box-shadow: 2px 4px 2rem #FF730077, -2px -4px 2rem #EC401077;
+        background: #211611;
+        /* border: 1pt solid var(--bg);
+        box-shadow: 2px 4px 2rem #FF730077, -2px -4px 2rem #EC401077; */
+    }
+
+    &::before {
+        content: "Run";
+        position: absolute;
+        top: 50%;
+        right: -1rem;
+        transform: translate(100%, -50%);
+        opacity: 0;
+        color: #69493b;
+        font-size: 1.5rem;
+        border-radius: 5rem;
+        display: inline-block;
+        padding: 0.75rem 1.25rem;
+        border: 1px solid #38271f;
+        transition: 100ms;
+    }
+
+    &:hover::before {
+        opacity: 1;
     }
 
     &:hover:active {

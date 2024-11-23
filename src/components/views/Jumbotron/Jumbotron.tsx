@@ -9,14 +9,13 @@ export default function Jumbotron() {
         <div className={styles.jumbotron}>
             <div className={styles.text}>
                 <div className={styles.heading}>
-                    The Programming
-                    Language compiled
-                    to Bash.
+                    amber
+                </div>
+                <div className={styles.subheading}>
+                    A language compiled to Bash.
                 </div>
                 <div className={styles.paragraph}>
-                    Write your scripts in a modern type-safe and
-                    runtime-safe programming language that handles
-                    many bugs and mistakes during the compilation process.
+                    A modern, type-safe programming language that catches bugs and errors at compile time.
                 </div>
                 <CopyInstaller />
                 <div className={styles.cta}>
@@ -25,7 +24,7 @@ export default function Jumbotron() {
                             href="https://docs.amber-lang.com"
                             telemetryName="docs"
                         >
-                            Get Started
+                            show_docs
                         </Button>
                     </CallToActionButton>
                 </div>

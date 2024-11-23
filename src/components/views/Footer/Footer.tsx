@@ -9,12 +9,12 @@ export default function Footer() {
             <div className={styles.container}>
                 <div className={styles.title}>
                     <h1>
-                        Get started now
+                        Discover the joy of shell scripting
                     </h1>
                 </div>
                 <CallToActionButton>
                     <Button href="https://docs.amber-lang.com" telemetryName="docs">
-                        See the docs
+                        show_docs
                     </Button>
                 </CallToActionButton>
             </div>

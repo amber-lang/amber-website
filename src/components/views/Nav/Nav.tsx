@@ -8,6 +8,9 @@ import TopBanner from "@/components/atoms/TopBanner/TopBanner";
 export default function Nav() {
     return (
         <>
+            <TopBanner>
+                Amber 0.4.0 is out! See the <a href="https://docs.amber-lang.com"> docs </a> for more info.
+            </TopBanner>
             <nav className={styles.nav}>
                 <div className={styles.logo}>
                     <Image
@@ -45,10 +48,6 @@ export default function Nav() {
                     </Button>
                 </div>
             </nav>
-            <div className={styles.space} />
-            <TopBanner>
-                Amber 0.4.0 is out! See the <a href="https://docs.amber-lang.com"> docs </a> for more info.
-            </TopBanner>
         </>
     );
 }

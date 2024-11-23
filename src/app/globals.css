@@ -11,14 +11,16 @@
 
 html,
 body {
-  max-width: 100vw;
   overflow-x: hidden;
+  overflow-y: auto;
+  max-width: 100vw;
+  height: 100%;
   font-family: var(--font-geist-sans);
 }
 
 body {
   color: white;
-  background: #160F0C
+  background: #160F0C;
 }
 
 a {
