@@ -5,13 +5,15 @@ import styles from "./page.module.css";
 import Features from "@/components/views/Features/Features";
 import Platforms from "@/components/views/Platforms/Platforms";
 import Footer from "@/components/views/Footer/Footer";
+import EditorSimulation from "@/components/views/EditorSimulation/EditorSimulation";
 
 export default function Home() {
   return (
     <main className={styles.main}>
         <Nav />
         <Jumbotron />
-        <Pipeline />
+        <EditorSimulation />
+        {/* <Pipeline /> */}
         <Features />
         <Platforms />
         <Footer />

@@ -1,0 +1,31 @@
+.keyword {
+    color: #9D00A8;
+}
+
+.ident {
+    color: #F54C4C;
+}
+
+.function {
+    color: #0086FF;
+}
+
+.type {
+    color: #FFA400;
+}
+
+.delimiter {
+    color: #808080;
+}
+
+.number {
+    color: #E0661C;
+}
+
+.region {
+    color: #559720;
+}
+
+.indent {
+    margin-left: 4ch;
+}
