@@ -140,19 +140,19 @@ export function Region({ text, inter }: { text: string[], inter?: React.ReactNod
     const result = []
     for (let i = 0; i < text.length + (inter?.length ?? 0); i++) {
         if (i % 2 === 0) {
-            result.push((
-                <span className={styles.region}>{text[Math.floor(i / 2)]}</span>
-            ));
+            result.push(
+                <span className={styles.region} key={i}>{text[Math.floor(i / 2)]}</span>
+            );
         } else {
             if (inter) {
-                result.push(<>
+                result.push(<React.Fragment key={i}>
                     <span className={styles.delimiter}>{"{"}</span>
                     {inter[Math.floor(i / 2)]}
                     <span className={styles.delimiter}>{"}"}</span>
-                </>);
+                </React.Fragment>);
             } else {
                 result.push((
-                    <span className={styles.delimiter}>{"{}"}</span>
+                    <span className={styles.delimiter} key={i}>{"{}"}</span>
                 ));
             }
         }

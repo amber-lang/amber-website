@@ -173,6 +173,23 @@
                     background: transparent;
                 }
 
+                .button {
+                    display: inline-block;
+                    padding: 0.5rem 0.5rem;
+                    border-radius: 0.25rem;
+                    border: 1px solid #211611;
+                    border-radius: 1rem;
+                    color: #FF7300;
+                    cursor: pointer;
+                    transition: 100ms;
+                    margin-bottom: 0.5rem;
+
+                    &:hover {
+                        background: #211611;
+                        color: #FF9137;
+                    }
+                }
+
                 .loading {
                     margin-top: 1ch;
                     margin-bottom: 1ch;

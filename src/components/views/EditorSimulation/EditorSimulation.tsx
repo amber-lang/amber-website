@@ -146,7 +146,17 @@ export default function EditorSimulation() {
                     <div className={styles.output} ref={outputRef}>
                         {shellCode.length === 0 ? <>
                             <span className={styles.prompt}>$ </span>
-                            <i>Click &quot;Run&quot; to see the output</i>
+                            <i>Click: </i>
+                            <div className={styles.button} onClick={(event) => runScript(event)}>
+                                <FunctionCall name="get_weather">
+                                    <Array>
+                                        {inputValues.map((city, i) => (
+                                            <Region text={[`"${city}"`]} key={i} />
+                                        ))}
+                                    </Array>
+                                </FunctionCall>
+                            </div>
+                            <i> to run the function </i>
                         </> : <>
                             <span className={styles.prompt}>$ </span>
                             {shellCode}
