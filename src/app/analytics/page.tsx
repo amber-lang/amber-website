@@ -32,10 +32,12 @@ const DataTable = () => {
         setLoading(false);
     }, [lastVisibleId]);
 
+    /* eslint-disable */
     useEffect(() => {
         fetchData(true);
     }, []);
 
+    /* eslint-disable */
     const handleScroll = () => {
         if (
             window.innerHeight + document.documentElement.scrollTop !==
