@@ -25,3 +25,12 @@
         height: 100%;
     }
 }
+
+@media screen and (max-width: 800px) {
+    .container {
+        border-radius: 1rem;
+        .content {
+            padding: 1rem;
+        }
+    }
+}

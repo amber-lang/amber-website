@@ -87,7 +87,7 @@ export default function EditorSimulation() {
     };
 
     return <>
-        <h1 className={styles.title}>Syntax inspired by ECMAScript</h1>
+        <h1 className={styles.title}>See it in action</h1>
         <div className={[styles.container, isTermOpen && styles['term-open']].filter(Boolean).join(' ')}>
             <div className={styles.apps}>
                 <div className={styles.editor}  onClick={() => setIsTermOpen(false)}>

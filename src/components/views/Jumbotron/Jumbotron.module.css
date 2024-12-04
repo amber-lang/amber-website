@@ -6,6 +6,7 @@
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
+    padding-bottom: 4rem;
 
     .text {
         display: inline-block;
@@ -114,6 +115,7 @@
 @media screen and (max-width: 800px) {
     .jumbotron {
         flex-direction: column;
+        padding-bottom: 0rem;
 
         .text {
             text-align: center;

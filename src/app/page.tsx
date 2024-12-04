@@ -13,9 +13,7 @@ export default function Home() {
         <Nav />
         <Jumbotron />
         <EditorSimulation />
-        {/* <Pipeline /> */}
         <Features />
-        <Platforms />
         <Footer />
     </main>
   );

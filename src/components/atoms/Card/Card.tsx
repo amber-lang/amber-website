@@ -13,10 +13,19 @@ const defaultProps: Props = {
     style: 'default'
 }
 
+const getStyle = (style: StyleVariants) => {
+    switch (style) {
+        case 'dark':
+            return styles.dark;
+        default:
+            return null;
+    }
+}
+
 export default function Card({ children, style }: Props = defaultProps) {
     const classNames = [
         styles.container,
-        style === 'dark' ? styles.dark : null
+        style && getStyle(style)
     ].filter(Boolean).join(' ')
     return (
         <div className={classNames}>

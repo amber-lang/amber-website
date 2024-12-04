@@ -7,16 +7,18 @@ export default function Footer() {
     return (
         <div>
             <div className={styles.container}>
-                <div className={styles.title}>
-                    <h1>
-                        Discover the joy of shell scripting
-                    </h1>
+                <div>
+                    <div className={styles.title}>
+                        <h1>
+                            Discover the joy of shell scripting
+                        </h1>
+                    </div>
+                    <CallToActionButton>
+                        <Button href="https://docs.amber-lang.com" telemetryName="docs">
+                            show_docs
+                        </Button>
+                    </CallToActionButton>
                 </div>
-                <CallToActionButton>
-                    <Button href="https://docs.amber-lang.com" telemetryName="docs">
-                        show_docs
-                    </Button>
-                </CallToActionButton>
             </div>
             <div className={styles.footer}>
                 <div className={styles.author}>© 2024 Amber</div>
