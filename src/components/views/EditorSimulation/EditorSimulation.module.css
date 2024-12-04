@@ -322,6 +322,7 @@
     .container {
         .apps {
             height: 450px;
+
             .editor {
                 .code {
                     margin: 1.5rem;
