@@ -1,0 +1,396 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+.title {
+    text-align: center;
+    max-width: 80rem;
+    font-family: "Cal Sans";
+    letter-spacing: 1px;
+    font-size: 3rem;
+    margin: 0 auto 1rem auto;
+    background: linear-gradient(90deg, var(--bg) 10%, var(--fg) 50%, var(--bg) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    background: url('/wallpaper.jpg');
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+
+    .apps {
+        position: relative;
+        display: flex;
+        height: 500px;
+
+        .editor {
+            position: absolute;
+            left: 0;
+            width: 80%;
+            min-width: 40rem;
+            height: 100%;
+            border-radius: 1.5rem;
+            background:
+                radial-gradient(ellipse at top, #211f1d, #211f1d 50%, var(--bg)),
+                radial-gradient(ellipse at top, white, var(--bg) 90%);
+            background-clip: content-box, border-box;
+            background-origin: border-box;
+            border: double 1pt transparent;
+            box-shadow: 0 0 2rem #00000033;
+            transition: 500ms cubic-bezier(.12,.77,.28,1);
+
+            .code {
+                position: relative;
+                z-index: 0;
+                margin: 3rem;
+                margin-top: 4rem;
+                font-family: monospace;
+                font-size: 1rem;
+                line-height: 150%;
+                color: #ccc;
+            }
+
+            .run {
+                position: absolute;
+                bottom: 2rem;
+                right: 2rem;
+                z-index: 1;
+                background: #211611;
+                border-radius: 5rem;
+                border: 1pt solid transparent;
+                font-family: monospace;
+                cursor: pointer;
+                font-size: 1rem;
+                font-weight: 500;
+                padding: 0.75rem 1.25rem;
+                border: 1px solid #38271f;
+                transition: box-shadow 800ms, border 500ms, transform 300ms;
+                transition-timing-function: cubic-bezier(0,1.5,1,1);
+
+                &.running {
+                    opacity: 0.5;
+                    &::before {
+                        display: none;
+                    }
+                }
+
+                &:hover {
+                    background: #211611;
+                }
+
+                &::before {
+                    content: "Run";
+                    position: absolute;
+                    top: 50%;
+                    left: -1rem;
+                    transform: translate(-100%, -50%);
+                    opacity: 0;
+                    color: #69493b;
+                    font-size: 1rem;
+                    border-radius: 5rem;
+                    display: inline-block;
+                    padding: 0.75rem 1.25rem;
+                    border: 1px solid #38271f;
+                    transition: 100ms;
+                }
+
+                &:hover::before {
+                    opacity: 1;
+                }
+
+                &:hover:active {
+                    transform: scale(0.9);
+                    filter: brightness(0.8);
+                }
+
+                & * {
+                    user-select: none;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .terminal {
+            position: absolute;
+            right: 0;
+            width: 50%;
+            min-width: 40rem;
+            height: 100%;
+            border-radius: 1.5rem;
+            background:
+                radial-gradient(ellipse at top, black, black 50%, var(--bg)),
+                radial-gradient(ellipse at top, white, var(--bg) 90%);
+            background-clip: content-box, border-box;
+            background-origin: border-box;
+            border: double 1pt transparent;
+            box-shadow: 0 0 2rem #00000033;
+            transition: 500ms cubic-bezier(.12,.77,.28,1);
+
+            .output {
+                position: relative;
+                z-index: 0;
+                margin: 1.5rem;
+                margin-top: 1.5rem;
+                border-radius: 0.25rem;
+                font-family: monospace;
+                font-size: 1rem;
+                color: #ccc;
+                height: calc(100% - 3rem);
+                overflow-y: auto;
+
+                &::-webkit-scrollbar {
+                    width: 0.5rem;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background: #605A57;
+                    border-radius: 1rem;
+                }
+
+                &::-webkit-scrollbar-track {
+                    background: transparent;
+                }
+
+                .button {
+                    display: inline-block;
+                    padding: 0.5rem 0.5rem;
+                    border-radius: 0.25rem;
+                    border: 1px solid #211611;
+                    border-radius: 1rem;
+                    color: #FF7300;
+                    cursor: pointer;
+                    transition: 100ms;
+                    margin-bottom: 0.5rem;
+
+                    &:hover {
+                        background: #211611;
+                        color: #FF9137;
+                    }
+                }
+
+                .loading {
+                    margin-top: 1ch;
+                    margin-bottom: 1ch;
+                    opacity: 0;
+                    animation: fade-in 1s forwards;
+                    animation-delay: 2s;
+
+                    &::after {
+                        content: "";
+                        display: inline-block;
+                        width: 1.5ch;
+                        height: 1.5ch;
+                        border: 3px solid transparent;
+                        border-top: 3px solid #FF7300;
+                        border-radius: 50%;
+                        animation: spin 1s linear infinite;
+                    }
+                }
+            }
+
+            .prompt {
+                color: #FF7300;
+            }
+
+            .primary {
+                color: #FF9137;
+            }
+
+            .secondary {
+                color: #FFB375;
+            }
+        }
+    }
+
+    .dock {
+        margin: 0 auto;
+        width: calc(4rem * 2 + 0.75rem * 3);
+        padding: 0.75rem;
+        margin-top: 3rem;
+        background: #211F1E88;
+        border: 1px solid #393634;
+        border-radius: 2rem;
+        display: flex;
+        gap: 0.75rem;
+
+        .icon {
+            display: inline-block;
+            padding: 0.7rem;
+            width: 4rem;
+            height: 4rem;
+            cursor: pointer;
+            border-radius: 1.2rem;
+            transition: 100ms;
+
+            &:hover {
+                background: #2B2522;
+            }
+
+            &.selected {
+                background: #38302D;
+            }
+        }
+    }
+}
+
+/* State when terminal is open */
+.container.term-open {
+    .apps {
+        .editor {
+            z-index: 0;
+            transform: scale(0.9);
+            opacity: 0.7;
+            bottom: 2rem;
+            filter: blur(1px);
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(0.91);
+                opacity: 0.9;
+            }
+        }
+
+        .terminal {
+            z-index: 3;
+            transform: scale(1);
+            opacity: 1;
+            top: 2rem;
+            filter: none;
+            cursor: default;
+
+            &:hover {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    }
+}
+
+/* State when editor is open */
+.container {
+    .apps {
+        .editor {
+            z-index: 3;
+            transform: scale(1);
+            opacity: 1;
+            bottom: -2rem;
+            filter: none;
+            cursor: default;
+
+            &:hover {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .terminal {
+            z-index: 0;
+            transform: scale(0.9);
+            opacity: 0.7;
+            top: -2rem;
+            filter: blur(1px);
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(0.91);
+                opacity: 0.9;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .container {
+        .apps {
+            .editor {
+                .code {
+                    margin: 2rem;
+                    margin-top: 3rem;
+                    font-size: 0.9rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .container {
+        .apps {
+            height: 450px;
+
+            .editor {
+                .code {
+                    margin: 1.5rem;
+                    margin-top: 2rem;
+                    font-size: 0.8rem;
+                }
+
+                .run::before {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .title {
+        font-size: 2rem;
+        background: linear-gradient(90deg, var(--bg) -10%, var(--fg) 50%, var(--bg) 110%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        padding: 0 2rem;
+    }
+
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        .apps {
+            .editor {
+                width: 100%;
+                min-width: unset;
+                .code {
+
+                }
+
+                .run {
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: calc(100% - 2rem);
+                    bottom: 1rem;
+                    &:hover:active {
+                        transform: translateX(-50%) scale(0.9);
+                    }
+                }
+            }
+
+            .terminal {
+                width: 100%;
+                min-width: unset;
+            }
+        }
+    }
+}

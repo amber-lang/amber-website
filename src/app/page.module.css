@@ -1,1 +1,6 @@
-
+.main {
+  min-height: 100vh; /* Ensures it starts at full viewport height */
+  height: auto; /* Let it grow with the content */
+  overflow: visible; /* No clipping of the sticky child */
+  position: relative; /* Keeps sticky children within bounds */
+}

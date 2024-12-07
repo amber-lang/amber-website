@@ -3,35 +3,48 @@
     width: 100%;
     max-width: 100rem;
     padding-top: 2rem;
-    display: flex;
+    padding-bottom: 0;
+    display: grid;
     position: relative;
     margin-top: 4rem;
     margin-left: auto;
     margin-right: auto;
     gap: 4rem;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
 
     &::-webkit-scrollbar {
       display: none;
     }
 
-    & > * {
-        width: 25rem;
-    }
+    .card {
+        border: 1pt solid #37271F;
+        padding: 2rem;
+        border-radius: 1rem;
 
-    .title {
-        font-size: 2rem;
-        display: inline-block;
-        color: var(--fg);
-        font-weight: 800;
-        margin-left: 1rem;
-        vertical-align: bottom;
-    }
+        .icon {
+            width: 100px;
+            height: 100px;
+            padding-bottom: 1rem;
+            margin: 0 auto;
+            position: relative;
+        }
 
-    .paragraph {
-        margin-top: 1rem;
-        font-size: 1.25rem;
-        color: color-mix(in srgb, var(--fg), black);
-        font-weight: 200;
+        .title {
+            font-size: 2rem;
+            display: inline-block;
+            color: var(--fg);
+            font-weight: 800;
+            vertical-align: bottom;
+        }
+
+        .paragraph {
+            margin-top: 0.5rem;
+            font-size: 1.3rem;
+            color: color-mix(in srgb, var(--fg) 70%, black);
+            font-weight: 200;
+        }
     }
 }
 
@@ -40,10 +53,6 @@
         padding-left: 1rem;
         padding-right: 1rem;
         gap: 2rem;
-
-        & > * {
-            width: 15rem;
-        }
 
         .title {
             font-size: 1.5rem;
@@ -58,17 +67,47 @@
 @media screen and (max-width: 800px) {
     .container {
         display: block;
+        width: 70%;
         font-size: 1rem;
         padding-left: 1rem;
         padding-right: 1rem;
 
         & > * {
-            width: calc(100vw - 2rem);
+            border: 0;
+            background-image: none !important;
             margin-bottom: 2rem;
         }
 
-        .title {
-            font-size: 1.75rem;
+        .card {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 1rem;
+
+            .icon {
+                margin-right: 1rem;
+                padding-bottom: 0;
+                width: 50px;
+                height: 50px;
+            }
+
+            .text-container {
+                flex: 1;
+            }
+
+            .title {
+                font-size: 1.5rem;
+            }
+
+            .paragraph {
+                font-size: 1rem;
+            }
         }
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .container {
+        width: calc(100% - 2rem);
     }
 }
