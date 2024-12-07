@@ -24,6 +24,7 @@
     font-size: inherit;
     font-weight: inherit;
     color: inherit;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 800px) {
