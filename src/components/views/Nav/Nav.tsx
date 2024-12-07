@@ -8,9 +8,9 @@ import TopBanner from "@/components/atoms/TopBanner/TopBanner";
 export default function Nav() {
     return (
         <>
-            <TopBanner>
+            {/* <TopBanner>
                 Amber 0.4.0 is out! See the <a href="https://docs.amber-lang.com"> docs </a> for more info.
-            </TopBanner>
+            </TopBanner> */}
             <nav className={styles.nav}>
                 <div className={styles.logo}>
                     <Image
