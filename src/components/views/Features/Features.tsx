@@ -1,5 +1,4 @@
 import React from "react";
-import Card from "@/components/atoms/Card/Card";
 import styles from "./Features.module.css";
 import Image from "next/image";
 
