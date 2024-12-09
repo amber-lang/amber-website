@@ -1,5 +1,7 @@
 import Image from "next/image";
 import styles from "./CompetitionAward.module.css";
+import imageUniversityWroclaw from "@/../public/university-wroclaw.svg";
+import imagePawelKaras from "@/../public/photos/pawel-karas.jpeg";
 import Link from "next/link";
 
 export default function CompetitionAward() {
@@ -14,24 +16,22 @@ export default function CompetitionAward() {
                 </div>
                 <div className={styles.logo}>
                     <Image
-                        src="/university-wroclaw.svg"
+                        src={imageUniversityWroclaw}
                         alt="Logo of Wroclaw University"
-                        width={0}
-                        height={0}
-                        sizes="100vw"
-                        style={{ width: 'auto', height: '4rem' }}
                     />
                 </div>
             </div>
             <div className={styles.right}>
                 <div className={styles.image}>
                     <Image
-                        src="/photos/project-founder-talk.jpeg"
+                        src={imagePawelKaras}
                         alt="Paweł Karaś - Project Founder"
-                        width={0}
-                        height={0}
-                        sizes="100vw"
-                        style={{ width: 'auto', height: '100%', maxHeight: '20rem' }}
+                        placeholder="blur"
+                        style={{
+                            maxWidth: "100%",
+                            height: "auto",
+                            borderRadius: "1rem"
+                        }}
                     />
                 </div>
                 <div className={styles.caption}>

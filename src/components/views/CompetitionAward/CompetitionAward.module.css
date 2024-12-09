@@ -52,6 +52,11 @@
             .logo {
                 display: inline-block;
                 margin-top: 1rem;
+
+                & > * {
+                    width: auto;
+                    height: 4rem;
+                }
             }
         }
 
@@ -59,24 +64,85 @@
             flex: 1;
             padding-left: 2rem;
 
-            .image {
-                width: auto;
-                height: auto;
-                max-height: 20rem;
-                border-radius: 1rem;
-                overflow: hidden;
-                border: double 1pt transparent;
-                /* This transforms padding + border to a border gradient */
-                background-image: none, radial-gradient(ellipse at top, white, #5b2200 80%, var(--bg) 90%);
-                background-origin: border-box;
-                background-clip: content-box, border-box;
-            }
-
             .caption {
                 margin-top: 0.5rem;
                 text-align: right;
                 font-style: italic;
                 opacity: 0.7;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .section {
+        .title {
+            padding: 0 4rem;
+            font-size: 2rem;
+        }
+
+        .container {
+            flex-direction: column;
+
+            .left {
+                text-align: left;
+
+                .headline {
+                    font-size: 2rem;
+                }
+
+                .logo {
+                    margin-top: 1rem;
+                    text-align: right;
+
+                    & > * {
+                        width: auto;
+                        height: 3rem;
+                    }
+                }
+            }
+
+            .right {
+                padding-left: 0;
+                margin-top: 1rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .section {
+        .title {
+            padding: 0 4rem;
+            font-size: 2rem;
+        }
+
+        .container {
+            flex-direction: column;
+            padding-left: 1rem;
+            padding-right: 1rem;
+
+            .left {
+                text-align: left;
+
+                .headline {
+                    font-size: 1.5rem;
+                }
+
+                .logo {
+                    margin-top: 0rem;
+                    text-align: right;
+
+                    & > * {
+                        width: auto;
+                        height: 2rem;
+                    }
+                }
+            }
+
+            .right {
+                padding-left: 0;
+                margin-top: 1rem;
             }
         }
     }
