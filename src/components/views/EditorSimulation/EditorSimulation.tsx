@@ -18,6 +18,8 @@ import citiesMap from "./cities.json";
 import { MouseEvent, ReactNode, useEffect, useRef, useState } from "react";
 import styles from "./EditorSimulation.module.css";
 import Image from "next/image";
+import iconAmberFile from "@/../public/icons/amber-file.svg";
+import iconTerminal from "@/../public/icons/terminal.svg";
 
 const getShellPromptCode = () => (
     <>
@@ -166,10 +168,10 @@ export default function EditorSimulation() {
             </div>
             <div className={styles.dock}>
                 <div className={[styles.icon, !isTermOpen && styles.selected].join(' ')} onClick={() => setIsTermOpen(false)}>
-                    <Image src="/icons/amber-file.svg" alt="Amber File Icon" width={0} height={0} style={{ width: '100%', height: '100%' }} />
+                    <Image src={iconAmberFile} alt="Amber File Icon" style={{ width: '100%', height: '100%' }} />
                 </div>
                 <div className={[styles.icon, isTermOpen && styles.selected].join(' ')} onClick={() => setIsTermOpen(true)}>
-                    <Image src="/icons/terminal.svg" alt="Terminal Icon" width={0} height={0} style={{ width: '100%', height: '100%' }} />
+                    <Image src={iconTerminal} alt="Terminal Icon" style={{ width: '100%', height: '100%' }} />
                 </div>
             </div>
         </div>
