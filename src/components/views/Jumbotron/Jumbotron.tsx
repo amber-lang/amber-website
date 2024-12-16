@@ -4,6 +4,7 @@ import Link from "next/link";
 import Button from "@/components/atoms/Button/Button";
 import CopyInstaller from "@/components/atoms/CopyInstaller/CopyInstaller";
 import Image from "next/image";
+import AmberHatLogo from "@/../public/amber-hat.svg";
 
 function SeasonalLogo() {
     const month = new Date().getMonth();
@@ -16,11 +17,10 @@ function SeasonalLogo() {
 function ChristmasHat() {
     return (
         <div className={styles["amber-hat"]}>
-            <img
-                src="/amber-hat.svg"
+            <Image
+                src={AmberHatLogo}
                 alt="amber"
-                style={{ height: '1em' }}
-            />
+                style={{ height: '1em' }} />
         </div>
     );
 }
