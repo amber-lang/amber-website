@@ -5,18 +5,24 @@ import Button from "@/components/atoms/Button/Button";
 import CopyInstaller from "@/components/atoms/CopyInstaller/CopyInstaller";
 import Image from "next/image";
 
-function ChristmasHat() {
-    if (new Date().getMonth() === 11) {
-        return (
-            <div className={styles["christmas-hat"]}>
-                <Image
-                    src="/christmas-hat.webp"
-                    alt="Christmas Hat"
-                    fill
-                />
-            </div>
-        );
+function SeasonalLogo() {
+    const month = new Date().getMonth();
+    if (month === 11 || month === 0) {
+        return <ChristmasHat />
     }
+    return <span>amber</span>;
+}
+
+function ChristmasHat() {
+    return (
+        <div className={styles["amber-hat"]}>
+            <img
+                src="/amber-hat.svg"
+                alt="amber"
+                style={{ height: '1em' }}
+            />
+        </div>
+    );
 }
 
 export default function Jumbotron() {
@@ -24,10 +30,7 @@ export default function Jumbotron() {
         <div className={styles.jumbotron}>
             <div className={styles.text}>
                 <div className={styles.heading}>
-                    <span>
-                        amber
-                        <ChristmasHat />
-                    </span>
+                    <SeasonalLogo />
                 </div>
                 <div className={styles.subheading}>
                     A language compiled to Bash.
