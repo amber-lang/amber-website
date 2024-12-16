@@ -22,14 +22,6 @@
 
             & span {
                 position: relative;
-                .christmas-hat {
-                    position: absolute;
-                    top: -0.25ch;
-                    left: -0.25ch;
-                    width: 1.5ch;
-                    height: 1.5ch;
-                    z-index: 10;
-                }
             }
         }
 
