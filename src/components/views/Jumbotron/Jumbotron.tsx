@@ -1,33 +1,15 @@
 import CallToActionButton from "@/components/atoms/CallToActionButton/CallToActionButton";
 import styles from "./Jumbotron.module.css";
-import Link from "next/link";
 import Button from "@/components/atoms/Button/Button";
 import CopyInstaller from "@/components/atoms/CopyInstaller/CopyInstaller";
-import Image from "next/image";
-
-function ChristmasHat() {
-    if (new Date().getMonth() === 11) {
-        return (
-            <div className={styles["christmas-hat"]}>
-                <Image
-                    src="/christmas-hat.webp"
-                    alt="Christmas Hat"
-                    fill
-                />
-            </div>
-        );
-    }
-}
+import SeasonalLogoType from "@/components/atoms/LogoType/LogoType";
 
 export default function Jumbotron() {
     return (
         <div className={styles.jumbotron}>
             <div className={styles.text}>
                 <div className={styles.heading}>
-                    <span>
-                        amber
-                        <ChristmasHat />
-                    </span>
+                    <SeasonalLogoType />
                 </div>
                 <div className={styles.subheading}>
                     A language compiled to Bash.

@@ -15,22 +15,11 @@
         margin-top: 4rem;
 
         .heading {
-            font-family: 'Cal Sans', sans-serif;
-            font-size: 4rem;
-            word-spacing: 0.5rem;
             width: 30rem;
-
-            & span {
-                position: relative;
-                .christmas-hat {
-                    position: absolute;
-                    top: -0.25ch;
-                    left: -0.25ch;
-                    width: 1.5ch;
-                    height: 1.5ch;
-                    z-index: 10;
-                }
-            }
+            position: relative;
+            margin-bottom: 0.75rem;
+            height: 3rem;
+            user-select: none;
         }
 
         .subheading {
@@ -134,11 +123,8 @@
             margin-left: 0;
 
             .heading {
-                font-size: 5rem;
+                height: 3.75rem;
                 width: auto;
-                margin-left: 2rem;
-                margin-right: 2rem;
-                word-spacing: inherit;
             }
 
             .subheading {
@@ -185,8 +171,7 @@
     .jumbotron {
         .text {
             .heading {
-                font-size: 4rem;
-                margin: 0rem;
+                height: 3rem;
             }
 
             .subheading {
