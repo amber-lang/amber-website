@@ -16,10 +16,13 @@ export default function Button({ children, href, telemetryName, styled }: Props)
 
     async function redirectWithTelemetry(href?: string, telemetryName?: string) {
         if (telemetryName) {
-            const res = await fetch(`/api/visit?name=${telemetryName}`, {
+            const request = fetch(`/api/visit?name=${telemetryName}`, {
                 cache: 'no-store'
             });
-            console.log(await res.text());
+            const timeout = new Promise((_, reject) => (
+                setTimeout(() => reject(new Error('timeout')), 800)
+            ));
+            await Promise.race([request, timeout]);
         }
         if (href) {
             router.push(href);
