@@ -1,3 +1,5 @@
+'use client'
+
 import styles from './LogoType.module.css'
 import Image from 'next/image'
 import AmberDefault from '@/../public/logotypes/amber-default.svg'
@@ -5,7 +7,7 @@ import AmberChristmas from '@/../public/logotypes/amber-christmas.svg'
 
 export default function SeasonalLogoType() {
     const month = new Date().getMonth();
-    if (month === 11 || month === 0) {
+    if (month === 11) {
         return <Image
             src={AmberChristmas}
             alt="Amber logo christmas edition"
