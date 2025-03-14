@@ -1,5 +1,5 @@
 .button {
-    appearance: none;
+    display: inline-block;
     color: white;
     border: none;
     display: inline-block;
@@ -14,16 +14,6 @@
     &:hover {
         background-color: #1d1613;
     }
-}
-
-.unstyled {
-    appearance: none;
-    background: transparent;
-    border: transparent;
-    font-size: inherit;
-    font-weight: inherit;
-    color: inherit;
-    cursor: pointer;
 }
 
 @media screen and (max-width: 800px) {

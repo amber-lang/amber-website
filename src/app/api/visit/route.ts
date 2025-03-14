@@ -61,7 +61,7 @@ export async function GET(request: NextRequest) {
             const os = getOStype(searchParams.get("agent") ?? '');
             const nickname = getNickname(searchParams.get("nickname") ?? '');
             const githubURL = nickname && await getGitHubURL(nickname);
-            const ip = request.ip ?? request.headers.get('X-Forwarded-For');
+            const ip = request.headers.get('X-Forwarded-For');
             const id = getID(ip ?? '');
             await db.collection("downloads").doc(id).set({
                 id,
@@ -71,9 +71,6 @@ export async function GET(request: NextRequest) {
             });
             return NextResponse.json({ msg: "OK", id });
         }
-        await db.collection("analytics").doc(name).update({
-            engagement: admin.firestore.FieldValue.increment(1)
-        })
     } catch (error: any) {
         return NextResponse.json({ error: error.toString() }, { status: 500 });
     }

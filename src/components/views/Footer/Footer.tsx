@@ -13,11 +13,11 @@ export default function Footer() {
                             Discover the joy of shell scripting
                         </h1>
                     </div>
-                    <CallToActionButton>
-                        <Button href="https://docs.amber-lang.com" telemetryName="docs">
+                    <a href="https://docs.amber-lang.com">
+                        <CallToActionButton>
                             show_docs
-                        </Button>
-                    </CallToActionButton>
+                        </CallToActionButton>
+                    </a>
                 </div>
             </div>
             <div className={styles.footer}>

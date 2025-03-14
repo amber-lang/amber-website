@@ -21,31 +21,22 @@ export default function Nav() {
                 </div>
                 <div className={styles["logo-title"]}>amber</div>
                 <div className={styles["right-nav"]}>
-                    <Button
-                        href="https://discord.gg/cjHjxbsDvZ"
-                        styled
-                    >
-                        <div className={styles.discord}>
-                            Join our Discord!
-                        </div>
-                        <div className={styles["discord-short"]}>
-                            Discord
-                        </div>
-                    </Button>
-                    <Button
-                        href="https://docs.amber-lang.com"
-                        telemetryName="docs"
-                        styled
-                    >
-                        Docs
-                    </Button>
-                    <Button
-                        href="https://github.com/Ph0enixKM/Amber"
-                        telemetryName="github"
-                        styled
-                    >
-                        GitHub
-                    </Button>
+                    <a href="https://discord.gg/cjHjxbsDvZ">
+                        <Button>
+                            <div className={styles.discord}>
+                                Join our Discord!
+                            </div>
+                            <div className={styles["discord-short"]}>
+                                Discord
+                            </div>
+                        </Button>
+                    </a>
+                    <a href="https://docs.amber-lang.com">
+                        <Button>Docs</Button>
+                    </a>
+                    <a href="https://github.com/amber-lang/Amber">
+                        <Button>GitHub</Button>
+                    </a>
                 </div>
             </nav>
         </>

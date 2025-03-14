@@ -19,14 +19,11 @@ export default function Jumbotron() {
                 </div>
                 <CopyInstaller />
                 <div className={styles.cta}>
-                    <CallToActionButton>
-                        <Button
-                            href="https://docs.amber-lang.com"
-                            telemetryName="docs"
-                        >
+                    <a href="https://docs.amber-lang.com">
+                        <CallToActionButton>
                             show_docs
-                        </Button>
-                    </CallToActionButton>
+                        </CallToActionButton>
+                    </a>
                 </div>
             </div>
             <div className={styles.image}>
