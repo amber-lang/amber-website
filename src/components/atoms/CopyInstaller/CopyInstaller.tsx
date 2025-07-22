@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import styles from "./CopyInstaller.module.css";
 
-const SNIPPET = "bash <(curl -s \"https://raw.githubusercontent.com/amber-lang/amber/master/setup/install.sh\")"
+const SNIPPET = "bash <(curl -sL "https://github.com/amber-lang/amber/releases/download/0.4.0-alpha/install.sh")"
 
 function getOSName(): string | null {
     const userAgent = (typeof window !== "undefined") ? window.navigator.userAgent : "";
