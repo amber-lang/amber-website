@@ -1,6 +1,6 @@
 import CallToActionButton from "@/components/atoms/CallToActionButton/CallToActionButton";
+import JumbotronCode from "./JumbotronCode";
 import styles from "./Jumbotron.module.css";
-import Button from "@/components/atoms/Button/Button";
 import CopyInstaller from "@/components/atoms/CopyInstaller/CopyInstaller";
 import SeasonalLogoType from "@/components/atoms/LogoType/LogoType";
 
@@ -28,7 +28,9 @@ export default function Jumbotron() {
             </div>
             <div className={styles.image}>
                 <div className={styles.card}>
-                    <div className={styles.code} />
+                    <div className={styles.code}>
+                        <JumbotronCode />
+                    </div>
                 </div>
             </div>
         </div>
