@@ -15,7 +15,7 @@
     "firebase": "^12.6.0",
     "firebase-admin": "^13.6.0",
     "geist": "^1.5.1",
-    "next": "16.0.10",
+    "next": "^16.0.10",
     "react": "^18",
     "react-dom": "^18",
     "sentiment": "^5.0.2",
