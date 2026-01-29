@@ -7,6 +7,8 @@ import EditorSimulation from "@/components/views/EditorSimulation/EditorSimulati
 import CompetitionAward from "@/components/views/CompetitionAward/CompetitionAward";
 import TopBanner from "@/components/atoms/TopBanner/TopBanner";
 
+export const revalidate = 86400;
+
 export default function Home() {
   return (
     <main className={styles.main}>
