@@ -5,6 +5,7 @@ import Image from 'next/image'
 import AmberDefault from '@/../public/logotypes/amber-default.svg'
 import AmberChristmas from '@/../public/logotypes/amber-christmas.svg'
 
+
 export default function SeasonalLogoType() {
     const month = new Date().getMonth();
     if (month === 11) {

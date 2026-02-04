@@ -12,23 +12,23 @@
     "@vercel/postgres": "^0.10.0",
     "base32": "^0.0.7",
     "cal-sans": "^1.0.1",
-    "firebase": "^12.6.0",
+    "firebase": "^12.8.0",
     "firebase-admin": "^13.6.0",
     "geist": "^1.5.1",
-    "next": "^16.0.10",
-    "react": "^18",
-    "react-dom": "^18",
+    "next": "^16.1.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "sentiment": "^5.0.2",
-    "usehooks-ts": "^3.1.0"
+    "usehooks-ts": "^3.1.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.3",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/node": "^20.19.30",
+    "@types/react": "^18.3.27",
+    "@types/react-dom": "^18.3.7",
     "@types/sentiment": "^5.0.4",
-    "eslint": "^9",
-    "eslint-config-next": "^16.0.7",
-    "typescript": "^5"
+    "eslint": "^9.39.2",
+    "eslint-config-next": "^16.1.6",
+    "typescript": "5.9.3"
   }
 }
