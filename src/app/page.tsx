@@ -12,7 +12,7 @@ export const revalidate = 86400;
 export default function Home() {
   return (
     <main className={styles.main}>
-        <TopBanner> Amber 0.5 alpha is now available! </TopBanner>
+        <TopBanner> Amber 0.6 alpha is now available! </TopBanner>
         <Nav />
         <Jumbotron />
         <EditorSimulation />
