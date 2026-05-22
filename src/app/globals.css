@@ -18,12 +18,12 @@
   --fg-subtle: #57534E;
 
   /* Brand */
-  --amber: #F59E0B;
-  --amber-bright: #FBBF24;
-  --amber3: #FDE68A;
-  --amber-dim: rgba(245, 158, 11, 0.12);
+  --amber: #EA580C;
+  --amber-bright: #F97316;
+  --amber3: #FED7AA;
+  --amber-dim: rgba(234, 88, 12, 0.12);
   --orange: #ea580c;
-  --amber-glow: rgba(245, 158, 11, 0.15);
+  --amber-glow: rgba(234, 88, 12, 0.15);
   --orange-glow: rgba(234, 88, 12, 0.10);
 
   /* Syntax highlight */

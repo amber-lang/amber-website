@@ -12,10 +12,6 @@
     color: var(--fg);
     margin-bottom: 3rem;
     font-family: "Cal Sans";
-
-    &::before {
-        content: "🏆 ";
-    }
 }
 
 .container {

@@ -4,14 +4,14 @@
     text-align: center;
     overflow: hidden;
     border-top: 1px solid var(--border);
-    background: linear-gradient(to bottom, var(--bg), rgba(245, 158, 11, 0.03) 50%, var(--bg));
+    background: linear-gradient(to bottom, var(--bg), rgba(234, 88, 12, 0.03) 50%, var(--bg));
 }
 
 .glow {
     position: absolute;
     width: 50rem;
     height: 20rem;
-    background: radial-gradient(ellipse at center, rgba(245, 158, 11, 0.1) 0%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(234, 88, 12, 0.1) 0%, transparent 70%);
     top: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -33,7 +33,7 @@
     color: var(--fg);
     font-family: "Cal Sans";
     margin-bottom: 1.25rem;
-    background: linear-gradient(160deg, #fafafa 40%, rgba(245, 158, 11, 0.7) 100%);
+    background: linear-gradient(160deg, #fafafa 40%, rgba(234, 88, 12, 0.7) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

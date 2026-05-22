@@ -78,7 +78,6 @@
     width: 2rem;
     height: 2rem;
     margin-bottom: 1.25rem;
-    filter: brightness(0) saturate(100%) invert(80%) sepia(30%) saturate(800%) hue-rotate(5deg) brightness(100%);
 }
 
 .cardTitle {
