@@ -34,7 +34,8 @@ export default function Jumbotron({ stars, release }: { stars: number; release: 
             </p>
             <div className={styles.ctas}>
                 <a href="#install" className={styles.btnPrimary}>
-                    ⚡ Quick Install
+                    <span className={styles.btnPrompt}>$</span>
+                    <span>install amber</span>
                 </a>
                 <a href="https://docs.amber-lang.com" className={styles.btnGhost}>
                     Read the Docs

@@ -22,12 +22,12 @@ import iconAmberFile from "@/../public/icons/amber-file.svg";
 import iconTerminal from "@/../public/icons/terminal.svg";
 
 const getShellPromptCode = () => (
-    <span>
+    <>
         <span className={styles.primary}>amber </span>
         <span className={styles.secondary}>run </span>
         script.ab
         <br />
-    </span>
+    </>
 );
 
 function sanitizeWeatherHtml(raw: string): string {

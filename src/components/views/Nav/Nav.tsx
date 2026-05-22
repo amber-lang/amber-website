@@ -43,7 +43,10 @@ export default function Nav({ release }: { release: GitHubRelease | null }) {
                     </svg>
                     GitHub
                 </a>
-                <a href="https://docs.amber-lang.com" className={styles.btnPrimary}>Get Started</a>
+                <a href="https://docs.amber-lang.com" className={styles.btnPrimary}>
+                    <span className={styles.btnPrompt}>$</span>
+                    <span>get started</span>
+                </a>
             </div>
         </nav>
     );

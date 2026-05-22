@@ -4,24 +4,24 @@
     gap: 0.5rem;
     padding: 0.65rem 1.375rem;
     border-radius: var(--radius);
-    background: linear-gradient(135deg, var(--amber) 0%, var(--orange) 100%);
-    color: #fff;
-    font-size: 0.9375rem;
-    font-weight: 600;
-    border: none;
-    letter-spacing: -0.01em;
-    transition: opacity 150ms ease, transform 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 200ms ease;
-    box-shadow: 0 0 20px rgba(245, 158, 11, 0.25), 0 2px 8px rgba(0, 0, 0, 0.3);
+    background: var(--bg-elevated);
+    color: var(--fg);
+    font-family: var(--font-dm-mono), monospace;
+    font-size: 0.9rem;
+    font-weight: 400;
+    border: 1px solid var(--border-strong);
+    letter-spacing: 0;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
 
     &:hover {
-        opacity: 0.92;
+        border-color: rgba(245, 158, 11, 0.5);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(245, 158, 11, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.06);
         transform: translateY(-1px);
-        box-shadow: 0 0 28px rgba(245, 158, 11, 0.35), 0 4px 16px rgba(0, 0, 0, 0.4);
     }
 
     &:active {
-        transform: scale(0.97) translateY(0);
-        opacity: 0.85;
+        transform: translateY(0);
     }
 
     & * {

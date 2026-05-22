@@ -18,7 +18,10 @@ export default function Footer() {
                     </p>
                     <div className={styles.actions}>
                         <a href="https://docs.amber-lang.com">
-                            <CallToActionButton>Get Started</CallToActionButton>
+                            <CallToActionButton>
+                                <span className={styles.btnPrompt}>$</span>
+                                <span>get started</span>
+                            </CallToActionButton>
                         </a>
                         <a href="https://discord.gg/cjHjxbsDvZ">
                             <Button>Join Discord</Button>
