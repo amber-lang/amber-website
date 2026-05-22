@@ -13,49 +13,65 @@ const FEATURES = [
     {
         icon: iconSyntax,
         title: "Modern Syntax",
-        paragraph: "ECMA Script-like syntax."
+        paragraph: "Familiar JavaScript-like syntax — readable, expressive, and easy to pick up.",
+        span: 7,
     },
     {
         icon: iconRuntime,
         title: "Runtime Safety",
-        paragraph: "Amber ensures that you handle everything that could fail."
+        paragraph: "Amber ensures every failure path is handled. No more silent script errors.",
+        span: 5,
     },
     {
         icon: iconTypes,
         title: "Type Safety",
-        paragraph: "Use strong typing to catch bugs at compile time."
+        paragraph: "Strong static typing catches bugs at compile time before they reach production.",
+        span: 4,
     },
     {
         icon: iconDocs,
-        title: "Instant Docs",
-        paragraph: "Generate documentation automatically."
+        title: "Auto-generated Docs",
+        paragraph: "Ship documentation alongside your code — generated automatically, always in sync.",
+        span: 4,
     },
     {
         icon: iconInterop,
-        title: "Bash Ready",
-        paragraph: "Interoperate with Bash scripts."
+        title: "Bash Native",
+        paragraph: "Zero-friction interop with existing Bash scripts, tools, and shell pipelines.",
+        span: 4,
     },
     {
         icon: iconStdlib,
-        title: "Library baked in",
-        paragraph: "Standard library with many useful functions."
+        title: "Built-in Library",
+        paragraph: "A rich standard library with utilities for text, files, http and more — ready out of the box.",
+        span: 12,
     }
 ];
 
 export default function Features() {
     return (
-        <div className={styles.container}>
-            {FEATURES.map((feature, index) => (
-                <div className={styles.card} key={index}>
-                    <div className={styles.icon}>
-                        <Image src={feature.icon} alt={feature.title} style={{ width: '100%', height: '100%' }} />
+        <section className={styles.section} id="features">
+            <div className={styles.header}>
+                <div className={styles.eyebrow}>Why Amber</div>
+                <h2 className={styles.title}>Everything you need<br />to write great scripts</h2>
+            </div>
+            <div className={styles.grid}>
+                {FEATURES.map((feature, index) => (
+                    <div
+                        className={styles.card}
+                        key={index}
+                        style={{ '--span': feature.span } as React.CSSProperties}
+                    >
+                        <div className={styles.cardInner}>
+                            <div className={styles.icon}>
+                                <Image src={feature.icon} alt={feature.title} style={{ width: '100%', height: '100%' }} />
+                            </div>
+                            <div className={styles.cardTitle}>{feature.title}</div>
+                            <p className={styles.paragraph}>{feature.paragraph}</p>
+                        </div>
                     </div>
-                    <div className={styles['text-container']}>
-                        <div className={styles.title}>{feature.title}</div>
-                        <p className={styles.paragraph}>{feature.paragraph}</p>
-                    </div>
-                </div>
-            ))}
-        </div>
+                ))}
+            </div>
+        </section>
     );
 }

@@ -1,113 +1,112 @@
-.container {
-    padding: 4rem;
-    width: 100%;
-    max-width: 100rem;
-    padding-top: 2rem;
-    padding-bottom: 0;
-    display: grid;
+.section {
     position: relative;
-    margin-top: 4rem;
-    margin-left: auto;
-    margin-right: auto;
-    gap: 4rem;
-    grid-auto-flow: row;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    z-index: 1;
+    padding: 7rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
 
-    &::-webkit-scrollbar {
-      display: none;
+.header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-family: var(--font-dm-mono), monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 1.25rem;
+}
+
+.title {
+    font-family: var(--font-instrument-serif), "Georgia", serif;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--fg);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.card {
+    grid-column: span var(--span, 4);
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+    transition: background 0.2s;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--amber), transparent);
+        opacity: 0;
+        transition: opacity 0.3s;
+        z-index: 2;
     }
 
+    &:hover {
+        background: var(--bg-elevated);
+
+        &::before {
+            opacity: 1;
+        }
+    }
+}
+
+.cardInner {
+    padding: 2.5rem 2rem;
+}
+
+.icon {
+    width: 2rem;
+    height: 2rem;
+    margin-bottom: 1.25rem;
+    filter: brightness(0) saturate(100%) invert(80%) sepia(30%) saturate(800%) hue-rotate(5deg) brightness(100%);
+}
+
+.cardTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--fg);
+    margin-bottom: 0.625rem;
+    letter-spacing: -0.01em;
+}
+
+.paragraph {
+    font-size: 0.875rem;
+    color: var(--fg-muted);
+    line-height: 1.65;
+}
+
+@media screen and (max-width: 900px) {
     .card {
-        border: 1pt solid #37271F;
-        padding: 2rem;
-        border-radius: 1rem;
-
-        .icon {
-            width: 100px;
-            height: 100px;
-            padding-bottom: 1rem;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .title {
-            font-size: 2rem;
-            display: inline-block;
-            color: var(--fg);
-            font-weight: 800;
-            vertical-align: bottom;
-        }
-
-        .paragraph {
-            margin-top: 0.5rem;
-            font-size: 1.3rem;
-            color: color-mix(in srgb, var(--fg) 70%, black);
-            font-weight: 200;
-        }
+        grid-column: span 6;
     }
 }
 
-@media screen and (max-width: 1200px) {
-    .container {
-        padding-left: 1rem;
-        padding-right: 1rem;
-        gap: 2rem;
-
-        .title {
-            font-size: 1.5rem;
-        }
-
-        & p {
-            font-size: 1rem;
-        }
+@media screen and (max-width: 600px) {
+    .card {
+        grid-column: span 12;
     }
-}
 
-@media screen and (max-width: 800px) {
-    .container {
-        display: block;
-        width: 70%;
-        font-size: 1rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
-
-        & > * {
-            border: 0;
-            background-image: none !important;
-            margin-bottom: 2rem;
-        }
-
-        .card {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            padding: 1rem;
-
-            .icon {
-                margin-right: 1rem;
-                padding-bottom: 0;
-                width: 50px;
-                height: 50px;
-            }
-
-            .text-container {
-                flex: 1;
-            }
-
-            .title {
-                font-size: 1.5rem;
-            }
-
-            .paragraph {
-                font-size: 1rem;
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 420px) {
-    .container {
-        width: calc(100% - 2rem);
+    .section {
+        padding: 5rem 1.5rem;
     }
 }

@@ -1,6 +1,44 @@
 :root {
-    --bg: #160f0c;
-    --fg: #E5DAD1;
+  /* Backgrounds */
+  --bg: #080808;
+  --bg-2: #0f0f0f;
+  --bg-elevated: #161616;
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface2: #161616;
+  --surface-hover: rgba(255, 255, 255, 0.07);
+
+  /* Borders */
+  --border: #1e1e1e;
+  --border-strong: #2a2a2a;
+
+  /* Text */
+  --fg: #FAFAF9;
+  --fg-2: #e4e4e7;
+  --fg-muted: #A8A29E;
+  --fg-subtle: #57534E;
+
+  /* Brand */
+  --amber: #F59E0B;
+  --amber-bright: #FBBF24;
+  --amber3: #FDE68A;
+  --amber-dim: rgba(245, 158, 11, 0.12);
+  --orange: #ea580c;
+  --amber-glow: rgba(245, 158, 11, 0.15);
+  --orange-glow: rgba(234, 88, 12, 0.10);
+
+  /* Syntax highlight */
+  --syn-purple: #C084FC;
+  --syn-blue: #60A5FA;
+  --syn-green: #4ADE80;
+  --syn-pink: #F472B6;
+  --syn-orange: #FB923C;
+  --syn-red: #F87171;
+
+  /* Radius */
+  --radius-sm: 0.375rem;
+  --radius: 0.625rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
 }
 
 * {
@@ -10,8 +48,8 @@
 }
 
 html {
-    overflow-x: hidden;
-    overflow-y: auto;
+  scroll-behavior: smooth;
+  scroll-padding-top: 65px;
 }
 
 html,
@@ -22,8 +60,18 @@ body {
 }
 
 body {
-  color: white;
-  background: #160F0C;
+  color: var(--fg);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 65px;
+}
+
+/* Custom cursor only on pointer (mouse/trackpad) devices, not touch */
+@media (pointer: fine) {
+  body { cursor: none; }
 }
 
 a {

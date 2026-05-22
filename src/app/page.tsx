@@ -3,22 +3,39 @@ import Nav from "@/components/views/Nav/Nav";
 import styles from "./page.module.css";
 import Features from "@/components/views/Features/Features";
 import Footer from "@/components/views/Footer/Footer";
-import EditorSimulation from "@/components/views/EditorSimulation/EditorSimulation";
 import CompetitionAward from "@/components/views/CompetitionAward/CompetitionAward";
-import TopBanner from "@/components/atoms/TopBanner/TopBanner";
+import ScrollReveal from "@/components/atoms/ScrollReveal/ScrollReveal";
+import BackgroundCanvas from "@/components/atoms/BackgroundCanvas/BackgroundCanvas";
+import Marquee from "@/components/views/Marquee/Marquee";
+import Compare from "@/components/views/Compare/Compare";
+import HowItWorks from "@/components/views/HowItWorks/HowItWorks";
+import { getGitHubStars, getLatestRelease } from "@/lib/github";
 
-export const revalidate = 86400;
+export const revalidate = 3600;
 
-export default function Home() {
+export default async function Home() {
+  const [stars, release] = await Promise.all([getGitHubStars(), getLatestRelease()]);
   return (
     <main className={styles.main}>
-        <TopBanner> Amber 0.6 alpha is now available! </TopBanner>
-        <Nav />
-        <Jumbotron />
-        <EditorSimulation />
-        <Features />
-        <CompetitionAward />
-        <Footer />
+        <BackgroundCanvas />
+        <Nav release={release} />
+        <Jumbotron stars={stars} release={release} />
+        <Marquee />
+        <ScrollReveal>
+            <Features />
+        </ScrollReveal>
+        <ScrollReveal>
+            <Compare />
+        </ScrollReveal>
+        <ScrollReveal>
+            <HowItWorks />
+        </ScrollReveal>
+        <ScrollReveal>
+            <CompetitionAward />
+        </ScrollReveal>
+        <ScrollReveal>
+            <Footer />
+        </ScrollReveal>
     </main>
   );
 }

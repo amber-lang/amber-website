@@ -7,22 +7,33 @@ export default function Footer() {
     return (
         <div>
             <div className={styles.container}>
-                <div>
-                    <div className={styles.title}>
-                        <h1>
-                            Discover the joy of shell scripting
-                        </h1>
+                <div className={styles.glow} />
+                <div className={styles.inner}>
+                    <h2 className={styles.title}>
+                        Start scripting smarter.
+                    </h2>
+                    <p className={styles.subtitle}>
+                        Join thousands of developers who write safer,
+                        more maintainable shell scripts with Amber.
+                    </p>
+                    <div className={styles.actions}>
+                        <a href="https://docs.amber-lang.com">
+                            <CallToActionButton>Get Started</CallToActionButton>
+                        </a>
+                        <a href="https://discord.gg/cjHjxbsDvZ">
+                            <Button>Join Discord</Button>
+                        </a>
                     </div>
-                    <a href="https://docs.amber-lang.com">
-                        <CallToActionButton>
-                            show_docs
-                        </CallToActionButton>
-                    </a>
                 </div>
             </div>
             <div className={styles.footer}>
-                <div className={styles.author}>© 2024 Amber</div>
-                <Link href="/analytics">View telemetry data</Link>
+                <div className={styles.author}>© 2024 Amber Lang</div>
+                <div className={styles.links}>
+                    <a href="https://github.com/amber-lang/Amber">GitHub</a>
+                    <a href="https://docs.amber-lang.com">Docs</a>
+                    <a href="https://discord.gg/cjHjxbsDvZ">Discord</a>
+                    <Link href="/analytics">Analytics</Link>
+                </div>
             </div>
         </div>
     );

@@ -1,14 +1,23 @@
 .topbanner {
-    background: linear-gradient(90deg, #1d1613, #4f2113, #1d1613);
-    color: white;
-    padding: 0.5rem;
+    background: linear-gradient(90deg, transparent, var(--amber-glow), transparent);
+    border-bottom: 1px solid rgba(245, 158, 11, 0.15);
+    color: var(--fg-muted);
+    padding: 0.625rem 1rem;
     width: 100%;
     text-align: center;
-    margin-top: -1px;
+    font-size: 0.875rem;
+    letter-spacing: 0.01em;
     z-index: 900;
 
     & a {
-        color: #e67117;
+        color: var(--amber);
         text-decoration: underline;
+        text-decoration-color: rgba(245, 158, 11, 0.4);
+        text-underline-offset: 2px;
+        transition: color 150ms;
+
+        &:hover {
+            color: var(--amber-bright);
+        }
     }
 }

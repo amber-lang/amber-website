@@ -22,13 +22,39 @@ import iconAmberFile from "@/../public/icons/amber-file.svg";
 import iconTerminal from "@/../public/icons/terminal.svg";
 
 const getShellPromptCode = () => (
-    <>
+    <span>
         <span className={styles.primary}>amber </span>
         <span className={styles.secondary}>run </span>
         script.ab
         <br />
-    </>
+    </span>
 );
+
+function sanitizeWeatherHtml(raw: string): string {
+    const doc = new DOMParser().parseFromString(raw, 'text/html');
+    // Remove all active/dangerous elements
+    doc.querySelectorAll(
+        'script,noscript,style,link,meta,base,iframe,frame,frameset,' +
+        'object,embed,applet,form,input,button,select,textarea'
+    ).forEach(el => el.remove());
+    // Strip dangerous attributes
+    doc.querySelectorAll('*').forEach(el => {
+        for (const attr of [...el.attributes]) {
+            const n = attr.name.toLowerCase();
+            const v = attr.value.replace(/\s/g, '').toLowerCase();
+            if (
+                n.startsWith('on') ||
+                (['href', 'src', 'action', 'formaction', 'data'].includes(n) &&
+                    (v.startsWith('javascript:') || v.startsWith('vbscript:') || v.startsWith('data:text/html')))
+            ) {
+                el.removeAttribute(attr.name);
+            }
+        }
+    });
+    // Extract just the <pre> block that contains the weather art
+    const pre = doc.querySelector('pre');
+    return pre ? pre.outerHTML : doc.body.innerHTML;
+}
 
 const getNewCities = () => {
     const cities = citiesMap.cities;
@@ -61,9 +87,10 @@ export default function EditorSimulation() {
         const temperatures: React.ReactNode[] = [];
         for (const city of input) {
             try {
-                const res = await fetch(`https://wttr.in/${city}?format=3`);
-                const result = await res.text();
-                temperatures.push(<div>{result}</div>);
+                const res = await fetch(`https://wttr.in/${encodeURIComponent(city)}?format=3`);
+                const raw = await res.text();
+                const safeHtml = sanitizeWeatherHtml(raw);
+                temperatures.push(<div className={styles.weatherResult} dangerouslySetInnerHTML={{ __html: safeHtml }} />);
             } catch {
                 temperatures.push(<div>Error: Failed to get weather for {city}</div>);
             }
@@ -109,7 +136,7 @@ export default function EditorSimulation() {
                                     <Region
                                         text={[
                                             '$ curl -s "https://wttr.in/',
-                                            '?format=1" $',
+                                            '" $',
                                         ]}
                                         inter={[<VariableGet name="city" key="city" />]}
                                     />

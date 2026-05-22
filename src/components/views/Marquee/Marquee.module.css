@@ -1,0 +1,39 @@
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+.marquee {
+    overflow: hidden;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 1.25rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+.track {
+    display: flex;
+    width: max-content;
+    animation: marquee 30s linear infinite;
+
+    &:hover {
+        animation-play-state: paused;
+    }
+}
+
+.item {
+    font-family: var(--font-dm-mono), monospace;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--fg-muted);
+    white-space: nowrap;
+    padding: 0 2.5rem;
+    text-transform: uppercase;
+    transition: color 0.15s;
+
+    &:hover {
+        color: var(--amber);
+    }
+}

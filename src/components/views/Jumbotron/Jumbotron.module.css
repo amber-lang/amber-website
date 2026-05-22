@@ -1,202 +1,331 @@
-.jumbotron {
-    display: flex;
-    flex-direction: row;
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+@keyframes fadeup {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: none; }
+}
+
+@keyframes highlight {
+    0%, 100% { box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.15), 0 0 16px rgba(245, 158, 11, 0.05); }
+    50%       { box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.4),  0 0 28px rgba(245, 158, 11, 0.15); }
+}
+
+.hero {
     position: relative;
-    max-width: 100rem;
-    margin-left: auto;
-    margin-right: auto;
+    min-height: 100vh;
+    padding: 8rem 2rem 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
     overflow: hidden;
-    padding-bottom: 4rem;
+}
 
-    .text {
-        display: inline-block;
-        flex: 1;
-        margin-left: 4rem;
-        margin-top: 4rem;
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--amber-dim);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    border-radius: 100px;
+    padding: 0.35rem 1rem;
+    font-size: 0.78rem;
+    color: var(--amber);
+    font-family: var(--font-dm-mono), monospace;
+    margin-bottom: 2.5rem;
+    animation: fadeup 0.6s ease both;
+    text-decoration: none;
+    transition: background 0.15s, border-color 0.15s;
+}
 
-        .heading {
-            width: 30rem;
-            position: relative;
-            margin-bottom: 0.75rem;
-            height: 3rem;
-            user-select: none;
-        }
+.badge:hover {
+    background: rgba(245, 158, 11, 0.12);
+    border-color: rgba(245, 158, 11, 0.4);
+}
 
-        .subheading {
-            font-size: 2rem;
-            font-weight: 100;
-            opacity: 0.7;
-            width: 30rem;
-        }
+.badgeDot {
+    width: 6px;
+    height: 6px;
+    background: var(--amber);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+    flex-shrink: 0;
+}
 
-        .paragraph {
-            margin-top: 1.5rem;
-            font-size: 1.2rem;
-            line-height: 1.5rem;
-            font-weight: 100;
-            width: 500px
-        }
+.heading {
+    font-family: var(--font-instrument-serif), "Georgia", serif;
+    font-size: clamp(2.6rem, 9vw, 7.5rem);
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    color: var(--fg);
+    margin-bottom: 1.5rem;
+    animation: fadeup 0.6s 0.1s ease both;
+}
 
-        .cta {
-            margin-top: 2.75rem;
-        }
-    }
+.headingEm {
+    font-style: italic;
+    background: linear-gradient(135deg, var(--amber) 0%, var(--amber3) 60%, #fff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    padding-right: 0.15em;
+    margin-right: -0.15em;
+}
 
-    .image {
-        display: inline-block;
-        flex: 1;
+.description {
+    font-size: 1.15rem;
+    color: var(--fg-muted);
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    animation: fadeup 0.6s 0.2s ease both;
+}
 
-        .card {
-            width: 55vw;
-            max-width: 55rem;
-            height: 30rem;
-            margin: 8.5rem 0 0 6rem;
-            text-align: left;
-            position: relative;
+.ctas {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 4rem;
+    animation: fadeup 0.6s 0.3s ease both;
+}
 
-            border-width: 1pt;
-            border-style: solid;
-            border-right: 0pt;
-            border-radius: 2rem;
-            border-top-right-radius: 0;
-            border: double 1pt transparent;
-            /* This transforms padding + border to a border gradient */
-            background-image:
-                radial-gradient(ellipse 90% 70% at 40% top, #49423f, #211f1d 50%, var(--bg)),
-                radial-gradient(ellipse at 40% top, white, var(--bg) 70%);
-            background-origin: border-box;
-            background-clip: content-box, border-box;
+.btnPrimary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--amber);
+    color: #000;
+    font-weight: 600;
+    font-size: 0.92rem;
+    padding: 0.7rem 1.6rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
 
-            .code {
-                position: relative;
-                z-index: 0;
-                margin: 3rem;
-                margin-top: 4rem;
-                background-size: contain;
-                background-repeat: no-repeat;
-                /* background-image: url("/jumbotron-sample-code.svg"); */
-                width: 55vw;
-                max-width: 55rem;
-                height: 30rem;
-            }
-
-            &::before {
-                content: '';
-                display: inline-block;
-                position: absolute;
-                width: inherit;
-                max-width: 55rem;
-                height: inherit;
-                background: linear-gradient(
-                    180deg,
-                    transparent 30%,
-                    color-mix(in srgb, #160f0ccc, transparent 30%),
-                    #160f0c 90%
-                );
-                top: 0;
-                z-index: 5;
-                border-radius: inherit;
-            }
-
-            &::after {
-                content: '';
-                display: inline-block;
-                position: absolute;
-                width: inherit;
-                max-width: 55rem;
-                height: calc(100% + 2rem);
-                background: linear-gradient(90deg, transparent 50%, var(--bg));
-                top: -2rem;
-                border-radius: inherit;
-            }
-        }
+    &:hover {
+        background: var(--amber-bright);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(245, 158, 11, 0.3);
     }
 }
 
-@media screen and (max-width: 800px) {
-    .jumbotron {
-        flex-direction: column;
-        padding-bottom: 0rem;
+.btnGhost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--fg);
+    font-weight: 500;
+    font-size: 0.92rem;
+    padding: 0.7rem 1.6rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-strong);
+    text-decoration: none;
+    transition: all 0.15s;
 
-        .text {
-            text-align: center;
-            margin-left: 0;
+    &:hover {
+        background: var(--surface2);
+        border-color: var(--fg-subtle);
+        transform: translateY(-2px);
+    }
+}
 
-            .heading {
-                height: 3.75rem;
-                width: auto;
-            }
+.window {
+    width: 100%;
+    max-width: 760px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-strong);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.03);
+    animation: fadeup 0.6s 0.4s ease both;
+    text-align: left;
+}
 
-            .subheading {
-                font-size: 2rem;
-                width: auto;
-                margin-left: 2rem;
-                margin-right: 2rem;
-                word-spacing: inherit;
-            }
+.winBar {
+    background: var(--surface2);
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-bottom: 1px solid var(--border);
+}
 
-            .paragraph {
-                width: auto;
-                margin-left: 4rem;
-                margin-right: 4rem;
-            }
-        }
+.winDots {
+    display: flex;
+    gap: 0.4rem;
+    flex-shrink: 0;
+}
 
-        .image .card {
-            width: 100vw;
-            height: 20rem;
-            margin-top: 3rem;
-            margin-left: 2rem;
+.winDot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
 
-            .code {
-                width: 100vw;
-                margin: 2rem;
-                margin-top: 2.5rem;
-            }
-        }
+    &:nth-child(1) { background: #FF5F57; }
+    &:nth-child(2) { background: #FEBC2E; }
+    &:nth-child(3) { background: #28C840; }
+}
+
+.winTab {
+    font-family: var(--font-dm-mono), monospace;
+    font-size: 0.72rem;
+    color: var(--fg-muted);
+    background: var(--border);
+    padding: 0.2rem 0.75rem;
+    border-radius: 4px;
+}
+
+.winTabActive {
+    color: var(--fg);
+    background: var(--bg-elevated);
+}
+
+.winBody {
+    overflow-x: auto;
+
+    &::-webkit-scrollbar { height: 4px; }
+    &::-webkit-scrollbar-track { background: transparent; }
+    &::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 2px; }
+}
+
+.sim {
+    width: 100%;
+    max-width: 760px;
+    text-align: left;
+    animation: fadeup 0.6s 0.4s ease both;
+}
+
+.installSnippet {
+    margin-top: 2.5rem;
+    animation: fadeup 0.6s 0.5s ease both;
+    border-radius: var(--radius);
+    outline: 1px solid transparent;
+    transition: outline-color 0.3s;
+}
+
+.installSnippet:target {
+    animation: highlight 3s ease-in-out infinite;
+}
+.stats {
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3.5rem;
+    animation: fadeup 0.6s 0.55s ease both;
+}
+
+.statGroup {
+    display: flex;
+    align-items: center;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    padding: 0 2.5rem;
+}
+
+.statN {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--fg);
+    letter-spacing: -0.02em;
+}
+
+.statL {
+    font-size: 0.75rem;
+    color: var(--fg-subtle);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-family: var(--font-dm-mono), monospace;
+}
+
+.statSep {
+    width: 1px;
+    background: var(--border-strong);
+    height: 2.5rem;
+    flex-shrink: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .hero {
+        padding: 6rem 1.5rem 4rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+
+    /* Hide the interactive editor on mobile — too complex for small screens */
+    .sim {
+        display: none;
+    }
+
+    /* Constrain install snippet to viewport width */
+    .installSnippet {
+        width: 100%;
+    }
+
+    .stat {
+        padding: 0 1.5rem;
+    }
+
+    .statN {
+        font-size: 1.1rem;
     }
 }
 
 @media screen and (max-width: 500px) {
-    .jumbotron {
-        .text {
-            .subheading {
-                font-size: 1.5rem;
-            }
-        }
+    .stats {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
     }
-}
 
-@media screen and (max-width: 420px) {
-    .jumbotron {
-        .text {
-            .heading {
-                height: 3rem;
-            }
+    .statGroup {
+        flex-direction: row-reverse;
+        width: 100%;
+        justify-content: center;
+    }
 
-            .subheading {
-                font-size: 1.25rem;
-                line-height: 1.5rem;
-                margin: 0rem;
-            }
+    /* Turn vertical separators into horizontal dividers */
+    .statSep {
+        display: none;
+    }
 
-            .paragraph {
-                font-size: 1rem;
-                line-height: 1.25rem;
-                margin-top: 0.75rem;
-                margin-left: 2rem;
-                margin-right: 2rem;
-            }
+    .statGroup + .statGroup {
+        border-top: 1px solid var(--border-strong);
+    }
 
-            .cta {
-                margin: auto;
-                margin-top: 1rem;
-            }
-        }
+    .stat {
+        padding: 1rem 0;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+    }
 
-        .image .card .code {
-            margin: 1.5rem;
-            margin-top: 2rem;
-        }
+    .statN {
+        font-size: 1.25rem;
+    }
+
+    .btnPrimary,
+    .btnGhost {
+        width: 100%;
+        justify-content: center;
     }
 }

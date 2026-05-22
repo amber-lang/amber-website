@@ -23,7 +23,7 @@
     letter-spacing: 1px;
     font-size: 3rem;
     margin: 0 auto 1rem auto;
-    background: linear-gradient(90deg, var(--bg) 10%, var(--fg) 50%, var(--bg) 100%);
+    background: linear-gradient(135deg, var(--amber) 0%, var(--fg) 60%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -35,10 +35,6 @@
     margin: 0 auto;
     padding-left: 4rem;
     padding-right: 4rem;
-    background: url('/wallpaper.jpg');
-    background-size: contain;
-    background-position: bottom;
-    background-repeat: no-repeat;
 
     .apps {
         position: relative;
@@ -53,7 +49,7 @@
             height: 100%;
             border-radius: 1.5rem;
             background:
-                radial-gradient(ellipse at top, #211f1d, #211f1d 50%, var(--bg)),
+                radial-gradient(ellipse at top, #18181b, #18181b 50%, var(--bg)),
                 radial-gradient(ellipse at top, white, var(--bg) 90%);
             background-clip: content-box, border-box;
             background-origin: border-box;
@@ -77,15 +73,14 @@
                 bottom: 2rem;
                 right: 2rem;
                 z-index: 1;
-                background: #211611;
+                background: var(--bg-elevated);
                 border-radius: 5rem;
                 border: 1pt solid transparent;
                 font-family: monospace;
-                cursor: pointer;
-                font-size: 1rem;
+                            font-size: 1rem;
                 font-weight: 500;
                 padding: 0.75rem 1.25rem;
-                border: 1px solid #38271f;
+                border: 1px solid var(--border);
                 transition: box-shadow 800ms, border 500ms, transform 300ms;
                 transition-timing-function: cubic-bezier(0,1.5,1,1);
 
@@ -97,7 +92,7 @@
                 }
 
                 &:hover {
-                    background: #211611;
+                    background: var(--bg-elevated);
                 }
 
                 &::before {
@@ -107,12 +102,12 @@
                     left: -1rem;
                     transform: translate(-100%, -50%);
                     opacity: 0;
-                    color: #69493b;
+                    color: var(--fg-subtle);
                     font-size: 1rem;
                     border-radius: 5rem;
                     display: inline-block;
                     padding: 0.75rem 1.25rem;
-                    border: 1px solid #38271f;
+                    border: 1px solid var(--border);
                     transition: 100ms;
                 }
 
@@ -127,8 +122,7 @@
 
                 & * {
                     user-select: none;
-                    cursor: pointer;
-                }
+                                }
             }
         }
 
@@ -177,16 +171,15 @@
                     display: inline-block;
                     padding: 0.5rem 0.5rem;
                     border-radius: 0.25rem;
-                    border: 1px solid #211611;
+                    border: 1px solid var(--border);
                     border-radius: 1rem;
-                    color: #FF7300;
-                    cursor: pointer;
-                    transition: 100ms;
+                    color: var(--amber);
+                                    transition: 100ms;
                     margin-bottom: 0.5rem;
 
                     &:hover {
-                        background: #211611;
-                        color: #FF9137;
+                        background: var(--bg-elevated);
+                        color: var(--amber-bright);
                     }
                 }
 
@@ -203,7 +196,7 @@
                         width: 1.5ch;
                         height: 1.5ch;
                         border: 3px solid transparent;
-                        border-top: 3px solid #FF7300;
+                        border-top: 3px solid var(--amber);
                         border-radius: 50%;
                         animation: spin 1s linear infinite;
                     }
@@ -211,15 +204,15 @@
             }
 
             .prompt {
-                color: #FF7300;
+                color: var(--amber);
             }
 
             .primary {
-                color: #FF9137;
+                color: var(--amber-bright);
             }
 
             .secondary {
-                color: #FFB375;
+                color: rgba(251,191,36,0.6);
             }
         }
     }
@@ -229,8 +222,8 @@
         width: calc(4rem * 2 + 0.75rem * 3);
         padding: 0.75rem;
         margin-top: 3rem;
-        background: #211F1E88;
-        border: 1px solid #393634;
+        background: rgba(24,24,27,0.6);
+        border: 1px solid var(--border);
         border-radius: 2rem;
         display: flex;
         gap: 0.75rem;
@@ -240,18 +233,29 @@
             padding: 0.7rem;
             width: 4rem;
             height: 4rem;
-            cursor: pointer;
-            border-radius: 1.2rem;
+                    border-radius: 1.2rem;
             transition: 100ms;
 
             &:hover {
-                background: #2B2522;
+                background: var(--surface);
             }
 
             &.selected {
-                background: #38302D;
+                background: var(--surface-hover);
             }
         }
+    }
+}
+
+.weatherResult {
+    pre {
+        margin: 0;
+        padding: 0.25rem 0;
+        font-family: monospace;
+        font-size: 0.72rem;
+        line-height: 1.45;
+        white-space: pre;
+        overflow-x: auto;
     }
 }
 
@@ -264,8 +268,7 @@
             opacity: 0.7;
             bottom: 2rem;
             filter: blur(1px);
-            cursor: pointer;
-
+        
             &:hover {
                 transform: scale(0.91);
                 opacity: 0.9;
@@ -278,7 +281,6 @@
             opacity: 1;
             top: 2rem;
             filter: none;
-            cursor: default;
 
             &:hover {
                 transform: scale(1);
@@ -297,7 +299,6 @@
             opacity: 1;
             bottom: -2rem;
             filter: none;
-            cursor: default;
 
             &:hover {
                 transform: scale(1);
@@ -311,8 +312,7 @@
             opacity: 0.7;
             top: -2rem;
             filter: blur(1px);
-            cursor: pointer;
-
+        
             &:hover {
                 transform: scale(0.91);
                 opacity: 0.9;
@@ -358,7 +358,7 @@
 @media screen and (max-width: 800px) {
     .title {
         font-size: 2rem;
-        background: linear-gradient(90deg, var(--bg) -10%, var(--fg) 50%, var(--bg) 110%);
+        background: linear-gradient(135deg, var(--amber) 0%, var(--fg) 60%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         padding: 0 2rem;

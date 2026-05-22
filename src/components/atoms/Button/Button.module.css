@@ -1,24 +1,31 @@
 .button {
-    display: inline-block;
-    color: white;
-    border: none;
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    font-size: 1.25rem;
-    background-color: transparent;
-    transition: background-color 100ms;
-    cursor: pointer;
-    vertical-align: middle;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: var(--fg-2);
+    padding: 0.625rem 1.125rem;
+    border-radius: var(--radius);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    background: transparent;
+    border: 1px solid var(--border);
+    transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+    letter-spacing: -0.01em;
 
     &:hover {
-        background-color: #1d1613;
+        background: var(--surface);
+        border-color: var(--border-strong);
+        color: var(--fg);
+    }
+
+    &:active {
+        opacity: 0.85;
     }
 }
 
 @media screen and (max-width: 800px) {
     .button {
-        padding: 0.25rem 0.5rem;
-        font-size: 1rem;
+        padding: 0.5rem 0.875rem;
+        font-size: 0.875rem;
     }
 }
