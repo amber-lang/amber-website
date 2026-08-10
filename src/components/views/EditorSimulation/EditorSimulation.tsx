@@ -40,6 +40,13 @@ const getNewCities = () => {
     return newCities;
 }
 
+type WeatherResponse = {
+    current_condition?: Array<{
+        temp_C?: string;
+        weatherDesc?: Array<{ value?: string }>;
+    }>;
+};
+
 export default function EditorSimulation() {
     const [isTermOpen, setIsTermOpen] = useState(false);
     const [shellCode, setShellCode] = useState<ReactNode[]>([]);
@@ -61,8 +68,19 @@ export default function EditorSimulation() {
         const temperatures: React.ReactNode[] = [];
         for (const city of input) {
             try {
-                const res = await fetch(`https://wttr.in/${city}?format=3`);
-                const result = await res.text();
+                const res = await fetch(`https://wttr.in/${encodeURIComponent(city)}?format=j1`);
+                if (!res.ok) throw new Error(`Weather request failed with status ${res.status}`);
+
+                const data = await res.json() as WeatherResponse;
+                const currentCondition = data.current_condition?.[0];
+                if (!currentCondition || currentCondition.temp_C === undefined) {
+                    throw new Error("Weather response is missing the temperature");
+                }
+
+                const temperature = currentCondition.temp_C;
+                const description = currentCondition.weatherDesc?.[0]?.value;
+                const signedTemperature = Number(temperature) > 0 ? `+${temperature}` : temperature;
+                const result = `${city}: ${description ? `${description} ` : ""}${signedTemperature}°C`;
                 temperatures.push(<div>{result}</div>);
             } catch {
                 temperatures.push(<div>Error: Failed to get weather for {city}</div>);
@@ -109,7 +127,7 @@ export default function EditorSimulation() {
                                     <Region
                                         text={[
                                             '$ curl -s "https://wttr.in/',
-                                            '?format=1" $',
+                                            '?format=j1" $',
                                         ]}
                                         inter={[<VariableGet name="city" key="city" />]}
                                     />
