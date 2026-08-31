@@ -13,7 +13,7 @@
     }
 
     .title {
-        & h1 {
+        & h2 {
             font-family: "Cal Sans";
             font-weight: 600;
             font-size: 1.5rem;

@@ -30,7 +30,7 @@ export default function SupportedBy() {
         <div className={styles.container}>
             <div className={styles.banner}>
                 <div className={styles.title}>
-                    <h1>Supported by</h1>
+                    <h2>Supported by</h2>
                 </div>
                 <div className={styles.logos}>
                     {logos.map((logo) => (
