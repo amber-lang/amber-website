@@ -1,0 +1,70 @@
+.container {
+    margin-top: -2rem;
+    padding-bottom: 8rem;
+
+    .banner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 2rem;
+        background-color: color-mix(in srgb, var(--bg), black 25%);
+
+    }
+
+    .title {
+        & h1 {
+            font-family: "Cal Sans";
+            font-weight: 600;
+            font-size: 1.5rem;
+            letter-spacing: 0.05em;
+            color: var(--fg);
+            opacity: 0.5;
+            /*color: transparent;
+            background: linear-gradient(90deg, var(--bg) -50%, var(--fg) 50%, var(--bg) 150%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;*/
+        }
+    }
+
+    .logos {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+
+        img {
+            height: 3rem;
+            width: auto;
+            filter: grayscale(1);
+            opacity: 0.6;
+            transition: opacity 0.2s ease;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        margin-top: -2rem;
+        padding-top: 2rem;
+        padding-bottom: 6rem;
+        gap: 2rem;
+
+        .title h1 {
+            font-size: 1.25rem;
+        }
+
+        .logos {
+            gap: 2rem;
+
+            img {
+                height: 2.5rem;
+            }
+        }
+    }
+}
