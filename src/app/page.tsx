@@ -5,16 +5,18 @@ import Features from "@/components/views/Features/Features";
 import Footer from "@/components/views/Footer/Footer";
 import EditorSimulation from "@/components/views/EditorSimulation/EditorSimulation";
 import CompetitionAward from "@/components/views/CompetitionAward/CompetitionAward";
-import TopBanner from "@/components/atoms/TopBanner/TopBanner";
+import SupportedBy from "@/components/views/SupportedBy/SupportedBy";
+// import TopBanner from "@/components/atoms/TopBanner/TopBanner";
 
 export const revalidate = 86400;
 
 export default function Home() {
   return (
     <main className={styles.main}>
-        <TopBanner> Amber 0.6 alpha is now available! </TopBanner>
+        {/*<TopBanner> Amber 0.6 alpha is now available! </TopBanner>*/}
         <Nav />
         <Jumbotron />
+        <SupportedBy />
         <EditorSimulation />
         <Features />
         <CompetitionAward />
