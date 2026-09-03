@@ -17,10 +17,10 @@ const logos = [
         href: "https://nlnet.nl/project/Amber/",
     },
     {
-        src: "/supportedby/regolo-logo.png",
+        src: "/supportedby/regolo-logo.svg",
         alt: "Regolo",
-        width: 476,
-        height: 120,
+        width: 1065,
+        height: 193,
         href: "https://regolo.ai",
     },
 ];
